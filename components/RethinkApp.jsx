@@ -141,9 +141,14 @@ function useSpeechInput(setVal) {
     r.continuous = true;
     r.interimResults = true;
     r.lang = "en-US";
+    let finalized = "";
     r.onresult = e => {
-      const transcript = Array.from(e.results).map(x => x[0].transcript).join("");
-      setVal(transcript);
+      let interim = "";
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        if (e.results[i].isFinal) finalized += e.results[i][0].transcript + " ";
+        else interim += e.results[i][0].transcript;
+      }
+      setVal((finalized + interim).trimEnd());
     };
     r.onend = () => setListening(false);
     r.onerror = () => setListening(false);
