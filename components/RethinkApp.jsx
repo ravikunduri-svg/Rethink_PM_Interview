@@ -110,6 +110,51 @@ const callClaudeJSON = callGroqJSON;
 const callClaudeJSONCached = callGroqJSONCached;
 const callClaudeWithWebSearchJSON = callGroqWithSearchJSON;
 
+// ── Audio helpers ─────────────────────────────────────────────────────────────
+function speak(text) {
+  if (typeof window === "undefined" || !window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.92;
+  window.speechSynthesis.speak(u);
+}
+
+function stopSpeaking() {
+  if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
+}
+
+function useSpeechInput(setVal) {
+  const [listening, setListening] = useState(false);
+  const recRef = useRef(null);
+  const supported = typeof window !== "undefined" &&
+    !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+
+  function toggle() {
+    if (listening) {
+      recRef.current?.stop();
+      setListening(false);
+      return;
+    }
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) return;
+    const r = new SR();
+    r.continuous = true;
+    r.interimResults = true;
+    r.lang = "en-US";
+    r.onresult = e => {
+      const transcript = Array.from(e.results).map(x => x[0].transcript).join("");
+      setVal(transcript);
+    };
+    r.onend = () => setListening(false);
+    r.onerror = () => setListening(false);
+    r.start();
+    recRef.current = r;
+    setListening(true);
+  }
+
+  return { listening, toggle, supported };
+}
+
 function friendlyError(e) {
   const m = e?.message || "";
   if (m === "TIMEOUT") return "The request took too long and timed out. Your connection may be slow — try again.";
@@ -679,7 +724,16 @@ Return ONLY valid JSON, no markdown, no explanation.`;
         {brief && !errorMsg && (
           <Card style={{ marginTop: 14 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-              <div style={{ fontSize: 16, fontWeight: 700 }}>{selected?.emoji} {selected?.name} — Interview Brief</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div style={{ fontSize: 16, fontWeight: 700 }}>{selected?.emoji} {selected?.name} — Interview Brief</div>
+                <button
+                  onClick={() => speak(`${selected?.name} Interview Brief. Mission: ${brief.mission}. Key tension: ${brief.keyTension}`)}
+                  title="Listen to brief"
+                  style={{ background: C.purpleL, border: "none", borderRadius: 6, padding: "4px 10px", fontSize: 12, color: C.purpleD, cursor: "pointer", fontFamily: "inherit" }}
+                >
+                  🔊 Listen
+                </button>
+              </div>
               {verified && <Badge color="teal">✓ Pre-verified · retrieved {verified.retrievedDate}{fromCache ? " · cached" : ""}</Badge>}
               {searchConfirmed && <Badge color="amber">🔎 Live web search · {citations.length} source{citations.length !== 1 ? "s" : ""}</Badge>}
               {selected?.custom && brief && !searchConfirmed && !verified && <Badge color="gray">🤖 AI knowledge · verify before interview</Badge>}
@@ -765,6 +819,7 @@ function StoryScreen({ storyBank, setStoryBank, setScreen, company }) {
   const [qi, setQi] = useState(0);
   const [answers, setAnswers] = useState({});
   const [ans, setAns] = useState("");
+  const storySpeech = useSpeechInput(setAns);
   const [loading, setLoading] = useState(false);
   const [bank, setBank] = useState(storyBank || []);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -900,14 +955,24 @@ function StoryScreen({ storyBank, setStoryBank, setScreen, company }) {
           </div>
 
           <div style={{ padding: "16px 18px", background: C.purpleL, border: `1.5px solid ${C.purpleM}`, borderRadius: 10, marginBottom: 16 }}>
-            <div style={{ fontSize: 11, color: C.purple, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 6 }}>Interviewer probe {qi + 1}/{PROBES.length}</div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+              <div style={{ fontSize: 11, color: C.purple, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em" }}>Interviewer probe {qi + 1}/{PROBES.length}</div>
+              <button onClick={() => speak(PROBES[qi])} title="Listen to question" style={{ background: "none", border: "none", cursor: "pointer", fontSize: 13, color: C.purple, padding: "2px 6px" }}>🔊</button>
+            </div>
             <div style={{ fontSize: 16, color: C.purpleD, fontFamily: "Georgia,serif", fontStyle: "italic", lineHeight: 1.5 }}>{PROBES[qi]}</div>
           </div>
 
           <InfoBox type="info">Answer in your own words. Be specific — names, numbers, timelines. Don't polish. Specific + honest = probe-resistant.</InfoBox>
 
           <div style={{ marginBottom: 16 }}>
-            <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: C.g700, marginBottom: 5 }}>Your answer</label>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 5 }}>
+              <label style={{ fontSize: 12, fontWeight: 600, color: C.g700 }}>Your answer</label>
+              {storySpeech.supported && (
+                <button onClick={storySpeech.toggle} title={storySpeech.listening ? "Stop recording" : "Record answer"} style={{ background: storySpeech.listening ? "#FEF2F2" : C.g100, border: `1px solid ${storySpeech.listening ? "#FCA5A5" : C.g300}`, borderRadius: 6, padding: "3px 10px", fontSize: 12, cursor: "pointer", color: storySpeech.listening ? "#DC2626" : C.g600 }}>
+                  {storySpeech.listening ? "⏹ Stop" : "🎤 Speak"}
+                </button>
+              )}
+            </div>
             <textarea value={ans} onChange={e => setAns(e.target.value)} rows={5} autoFocus
               placeholder="Be specific. What exactly did you do? What numbers? What was yours alone?"
               style={{ width: "100%", fontFamily: "inherit", fontSize: 13, padding: "10px 12px", border: `1px solid ${C.g300}`, borderRadius: 8, resize: "vertical", lineHeight: 1.6, outline: "none" }} />
@@ -975,8 +1040,16 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
   const [scoringError, setScoringError] = useState(null);
   const [sendError, setSendError] = useState(null);
   const [pendingTranscript, setPendingTranscript] = useState(null);
+  const speech = useSpeechInput(setInput);
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs, loading, ended]);
+
+  // Auto-speak new interviewer messages
+  useEffect(() => {
+    if (msgs.length === 0) return;
+    const last = msgs[msgs.length - 1];
+    if (last.role === "interviewer") speak(last.content);
+  }, [msgs]);
 
   function systemPrompt(t) {
     const ctx = storyBank?.map(c =>
@@ -985,7 +1058,7 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
 
     if (t === "founder") return `You are the founder of ${company?.name || "a startup"} interviewing a PM candidate. Be direct, skeptical, test thinking not frameworks. Story bank:\n${ctx}\n\nRULES: 1) Open with "Tell me about the most important product you worked on — and I mean YOU, not your team." 2) Probe 2-3 levels deep on any claim: "Walk me through that metric exactly", "What did YOU personally do vs your team?", "What decision only you made?" 3) Ask uncomfortable questions: "Why haven't you shipped more?", "Convince me your MVP thinking is enough", "What assumptions might be wrong?" 4) One question per turn, under 3 sentences. 5) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically.`;
 
-    return `You are conducting a Product Discovery interview at ${company?.name || "a company"}. Play a user persona (teacher, patient, delivery partner — pick one). Candidate must discover the problem, not pitch solutions. Story bank:\n${ctx}\n\nRULES: 1) Open with an ambiguous situation as that persona: "I'm struggling and I need help." 2) Make them ask YOU questions. If they jump to a solution say "Wait — you haven't asked about my actual problem." 3) Reward good clarifying questions with depth; give vague answers to bad ones. 4) After good discovery ask "What specifically would you build first and why?" then probe their reasoning. 5) One message per turn, under 3 sentences. 6) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically.`;
+    return `You are conducting a Product Discovery interview at ${company?.name || "a company"}. Play a user persona (teacher, patient, delivery partner — pick one). Candidate must discover the problem, not pitch solutions. Story bank:\n${ctx}\n\nRULES: 1) Open with an ambiguous situation as that persona: "I'm struggling and I need help." 2) Make them ask YOU questions. If they jump to a solution say "Wait — you haven't asked about my actual problem." 3) Reward good clarifying questions with depth; give vague answers to bad ones. 4) After good discovery ask "What specifically would you build first and why?" then probe their reasoning. 5) One message per turn, under 3 sentences. 6) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically. 7) CRITICAL: NEVER suggest, hint at, or prompt specific questions for the candidate to ask. Do not say things like "You could ask about..." or "Have you considered asking..." or "A good question would be...". They must discover questions themselves. You only evaluate the quality of questions they actually ask — you never supply them.`;
   }
 
   function start(t) {
@@ -1143,6 +1216,9 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
             <div style={{ padding: "11px 15px", borderRadius: 14, fontSize: 13, lineHeight: 1.65, background: m.role === "candidate" ? C.purple : C.white, color: m.role === "candidate" ? "#fff" : C.g800, border: m.role === "interviewer" ? `1px solid ${C.g200}` : "none", boxShadow: m.role === "interviewer" ? "0 1px 3px rgba(0,0,0,.06)" : "none", borderBottomLeftRadius: m.role === "interviewer" ? 4 : 14, borderBottomRightRadius: m.role === "candidate" ? 4 : 14 }}>
               {m.content}
             </div>
+            {m.role === "interviewer" && (
+              <button onClick={() => speak(m.content)} title="Listen" style={{ marginTop: 4, background: "none", border: "none", cursor: "pointer", fontSize: 13, color: C.g400, padding: "2px 4px" }}>🔊</button>
+            )}
           </div>
         ))}
 
@@ -1212,9 +1288,20 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
             onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
             style={{ width: "100%", fontFamily: "inherit", fontSize: 13, padding: "9px 12px", border: `1px solid ${C.g300}`, borderRadius: 8, resize: "none", outline: "none", lineHeight: 1.6 }}
           />
-          <Btn size="lg" onClick={send} disabled={!input.trim() || loading} style={{ width: "100%", justifyContent: "center", marginTop: 8 }}>
-            {loading ? <><Spinner /> Thinking...</> : "Submit answer →"}
-          </Btn>
+          <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+            {speech.supported && (
+              <button
+                onClick={speech.toggle}
+                title={speech.listening ? "Stop recording" : "Record answer"}
+                style={{ flexShrink: 0, padding: "0 16px", background: speech.listening ? "#FEF2F2" : C.g100, border: `1px solid ${speech.listening ? "#FCA5A5" : C.g300}`, borderRadius: 8, fontSize: 18, cursor: "pointer", color: speech.listening ? "#DC2626" : C.g600 }}
+              >
+                {speech.listening ? "⏹" : "🎤"}
+              </button>
+            )}
+            <Btn size="lg" onClick={send} disabled={!input.trim() || loading} style={{ flex: 1, justifyContent: "center" }}>
+              {loading ? <><Spinner /> Thinking...</> : "Submit answer →"}
+            </Btn>
+          </div>
         </div>
       )}
     </div>
