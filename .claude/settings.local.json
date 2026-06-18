@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Read(//c/Codes/**)",
+      "Read(//c/Users/kk625158/**)",
+      "Bash(cd:*)"
+    ]
+  }
+}
