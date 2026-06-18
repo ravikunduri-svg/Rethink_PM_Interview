@@ -980,9 +980,9 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
       `Project: ${c.projectTitle} at ${c.company}. Claim: "${c.coreClaim}". Impact: ${c.metrics}. Personal contribution: ${c.personalContribution}. Probe these: ${c.followUpProbes?.join("; ")}`
     ).join("\n") || "No story bank — probe any claims they make.";
 
-    if (t === "founder") return `You are the founder of ${company?.name || "a startup"} interviewing a PM candidate. Be direct, skeptical, test thinking not frameworks. Story bank:\n${ctx}\n\nRULES: 1) Open with "Tell me about the most important product you worked on — and I mean YOU, not your team." 2) Probe 2-3 levels deep on any claim: "Walk me through that metric exactly", "What did YOU personally do vs your team?", "What decision only you made?" 3) Ask uncomfortable questions: "Why haven't you shipped more?", "Convince me your MVP thinking is enough", "What assumptions might be wrong?" 4) One question per turn, under 3 sentences. 5) After ${MAX} turns say "Thanks, I have what I need."`;
+    if (t === "founder") return `You are the founder of ${company?.name || "a startup"} interviewing a PM candidate. Be direct, skeptical, test thinking not frameworks. Story bank:\n${ctx}\n\nRULES: 1) Open with "Tell me about the most important product you worked on — and I mean YOU, not your team." 2) Probe 2-3 levels deep on any claim: "Walk me through that metric exactly", "What did YOU personally do vs your team?", "What decision only you made?" 3) Ask uncomfortable questions: "Why haven't you shipped more?", "Convince me your MVP thinking is enough", "What assumptions might be wrong?" 4) One question per turn, under 3 sentences. 5) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically.`;
 
-    return `You are conducting a Product Discovery interview at ${company?.name || "a company"}. Play a user persona (teacher, patient, delivery partner — pick one). Candidate must discover the problem, not pitch solutions. Story bank:\n${ctx}\n\nRULES: 1) Open with an ambiguous situation as that persona: "I'm struggling and I need help." 2) Make them ask YOU questions. If they jump to a solution say "Wait — you haven't asked about my actual problem." 3) Reward good clarifying questions with depth; give vague answers to bad ones. 4) After good discovery ask "What specifically would you build first and why?" then probe their reasoning. 5) One message per turn, under 3 sentences. 6) After ${MAX} turns: "Thanks, I understand your approach now."`;
+    return `You are conducting a Product Discovery interview at ${company?.name || "a company"}. Play a user persona (teacher, patient, delivery partner — pick one). Candidate must discover the problem, not pitch solutions. Story bank:\n${ctx}\n\nRULES: 1) Open with an ambiguous situation as that persona: "I'm struggling and I need help." 2) Make them ask YOU questions. If they jump to a solution say "Wait — you haven't asked about my actual problem." 3) Reward good clarifying questions with depth; give vague answers to bad ones. 4) After good discovery ask "What specifically would you build first and why?" then probe their reasoning. 5) One message per turn, under 3 sentences. 6) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically.`;
   }
 
   function start(t) {
@@ -1193,18 +1193,20 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
 
       {/* Input area — hidden once ended */}
       {!ended && (
-        <div style={{ padding: "14px 32px", borderTop: `1px solid ${C.g200}`, background: C.white, display: "flex", gap: 10, alignItems: "flex-end", flexShrink: 0 }}>
+        <div style={{ padding: "14px 32px", borderTop: `1px solid ${C.g200}`, background: C.white, flexShrink: 0 }}>
           <textarea
             value={input}
             onChange={e => setInput(e.target.value)}
-            rows={2}
-            placeholder="Type your answer... Be specific. Real numbers, real examples, your actual decisions. Press Enter to send."
+            rows={3}
+            placeholder="Type your answer here — be specific. Real numbers, real decisions, real timelines. Shift+Enter for new line."
             onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
-            style={{ flex: 1, fontFamily: "inherit", fontSize: 13, padding: "9px 12px", border: `1px solid ${C.g300}`, borderRadius: 8, resize: "none", outline: "none", lineHeight: 1.6 }}
+            style={{ width: "100%", fontFamily: "inherit", fontSize: 13, padding: "9px 12px", border: `1px solid ${C.g300}`, borderRadius: 8, resize: "none", outline: "none", lineHeight: 1.6 }}
           />
-          <Btn onClick={send} disabled={!input.trim() || loading}>
-            {loading ? <Spinner /> : "Send →"}
-          </Btn>
+          <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
+            <Btn size="lg" onClick={send} disabled={!input.trim() || loading}>
+              {loading ? <><Spinner /> Thinking...</> : "Submit answer →"}
+            </Btn>
+          </div>
         </div>
       )}
     </div>
