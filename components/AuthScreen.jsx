@@ -8,7 +8,7 @@ const C = {
   g800: "#1F2937", g900: "#111827", white: "#FFFFFF",
 };
 
-export default function AuthScreen() {
+export default function AuthScreen({ onGuestContinue }) {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -98,6 +98,16 @@ export default function AuthScreen() {
 
               <div style={{ marginTop: 20, padding: '12px 14px', background: C.purpleL, borderRadius: 10, fontSize: 12, color: C.purpleD, lineHeight: 1.6 }}>
                 <strong>🔒 Your data is private.</strong> Every candidate's story bank, scores, and history are stored separately — only you can see yours.
+              </div>
+
+              <div style={{ marginTop: 20, paddingTop: 16, borderTop: `1px solid ${C.g200}`, textAlign: 'center' }}>
+                <button
+                  onClick={onGuestContinue}
+                  style={{ fontSize: 13, color: C.g500, background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'underline' }}
+                >
+                  Try without signing up →
+                </button>
+                <div style={{ fontSize: 11, color: C.g400, marginTop: 4 }}>Progress won't be saved across sessions</div>
               </div>
             </>
           )}

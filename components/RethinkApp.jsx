@@ -398,8 +398,11 @@ function Sidebar({ screen, setScreen, company, storyDone, mockDone, sessionCount
             {user?.email?.[0]?.toUpperCase() || "?"}
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: 11, fontWeight: 600, color: C.g800, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user?.email || "Guest"}</div>
-            <button onClick={onSignOut} style={{ fontSize: 10, color: C.g400, background: "none", border: "none", cursor: "pointer", padding: 0, fontFamily: "inherit", marginTop: 2 }}>Sign out</button>
+            <div style={{ fontSize: 11, fontWeight: 600, color: C.g800, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user?.email || "Guest session"}</div>
+            {user
+              ? <button onClick={onSignOut} style={{ fontSize: 10, color: C.g400, background: "none", border: "none", cursor: "pointer", padding: 0, fontFamily: "inherit", marginTop: 2 }}>Sign out</button>
+              : <div style={{ fontSize: 10, color: C.g400, marginTop: 2 }}>Progress not saved</div>
+            }
           </div>
         </div>
       </div>
@@ -1143,6 +1146,13 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
           </div>
         ))}
 
+        {/* "Your turn" nudge — appears after each interviewer message so users know to scroll down and type */}
+        {msgs.length > 0 && !ended && !loading && msgs[msgs.length - 1].role === "interviewer" && (
+          <div style={{ alignSelf: "center", fontSize: 11, color: C.g400, padding: "4px 14px", background: C.g100, borderRadius: 99, letterSpacing: ".02em" }}>
+            ↓ Your turn — type your answer below
+          </div>
+        )}
+
         {/* Typing indicator */}
         {loading && !ended && (
           <div style={{ alignSelf: "flex-start" }}>
@@ -1202,11 +1212,9 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
             onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
             style={{ width: "100%", fontFamily: "inherit", fontSize: 13, padding: "9px 12px", border: `1px solid ${C.g300}`, borderRadius: 8, resize: "none", outline: "none", lineHeight: 1.6 }}
           />
-          <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
-            <Btn size="lg" onClick={send} disabled={!input.trim() || loading}>
-              {loading ? <><Spinner /> Thinking...</> : "Submit answer →"}
-            </Btn>
-          </div>
+          <Btn size="lg" onClick={send} disabled={!input.trim() || loading} style={{ width: "100%", justifyContent: "center", marginTop: 8 }}>
+            {loading ? <><Spinner /> Thinking...</> : "Submit answer →"}
+          </Btn>
         </div>
       )}
     </div>
@@ -1431,8 +1439,9 @@ export default function App({ user }) {
       setDbLoading(false);
     }
 
+    if (!user) { setDbLoading(false); return; }
     loadUserData().catch(() => setDbLoading(false));
-  }, [user.id]);
+  }, [user?.id]);
 
   async function recordSession(sessionScores, mockType) {
     const id = crypto.randomUUID();
@@ -1450,6 +1459,7 @@ export default function App({ user }) {
       },
     ]);
 
+    if (!user) return; // guest — no persistence
     supabase.from('sessions').insert({
       id,
       user_id: user.id,
@@ -1462,10 +1472,10 @@ export default function App({ user }) {
     }).then(({ error }) => { if (error) console.error('Session save failed:', error.message); });
   }
 
-  // Saves story bank optimistically; skips custom companies (no stable ID)
+  // Saves story bank optimistically; skips guest mode and custom companies
   function saveStoryBank(bank) {
     setStoryBank(bank);
-    if (!company?.id || company.id.startsWith('custom:')) return;
+    if (!user || !company?.id || company.id.startsWith('custom:')) return;
     supabase.from('story_banks').upsert({
       user_id: user.id,
       company_id: company.id,
@@ -1476,6 +1486,7 @@ export default function App({ user }) {
   }
 
   function updateOutcome(sessionId, outcome) {
+    if (!user) return;
     supabase.from('sessions').update({ outcome }).eq('id', sessionId).eq('user_id', user.id)
       .then(({ error }) => { if (error) console.error('Outcome update failed:', error.message); });
   }

@@ -8,6 +8,7 @@ const App = dynamic(() => import('../components/RethinkApp'), { ssr: false });
 export default function Home() {
   // undefined = still checking, null = not logged in, object = logged in user
   const [user, setUser] = useState(undefined);
+  const [isGuest, setIsGuest] = useState(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -21,7 +22,7 @@ export default function Home() {
     return () => subscription.unsubscribe();
   }, []);
 
-  if (user === undefined) return null; // brief loading flash before session check resolves
-  if (!user) return <AuthScreen />;
-  return <App user={user} />;
+  if (user === undefined) return null;
+  if (!user && !isGuest) return <AuthScreen onGuestContinue={() => setIsGuest(true)} />;
+  return <App user={user} />;  // user is null for guests — App handles this gracefully
 }
