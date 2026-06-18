@@ -1,9 +1,27 @@
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { supabase } from '../lib/supabase';
+import AuthScreen from '../components/AuthScreen';
 
-// ssr: false because the app uses browser-only APIs and all AI calls
-// go through /api/chat — there is nothing meaningful to server-render.
 const App = dynamic(() => import('../components/RethinkApp'), { ssr: false });
 
 export default function Home() {
-  return <App />;
+  // undefined = still checking, null = not logged in, object = logged in user
+  const [user, setUser] = useState(undefined);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  if (user === undefined) return null; // brief loading flash before session check resolves
+  if (!user) return <AuthScreen />;
+  return <App user={user} />;
 }

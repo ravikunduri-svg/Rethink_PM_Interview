@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
+import { supabase } from '../lib/supabase';
 
 // ── API layer — production hardened ────────────────────────────────────────
 // Real reliability fixes: timeout, retry on transient failure, robust JSON
@@ -342,7 +343,7 @@ function MockTypeCard({ t, icon, title, desc, badge, onStart }) {
 }
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
-function Sidebar({ screen, setScreen, company, storyDone, mockDone, sessionCount = 0 }) {
+function Sidebar({ screen, setScreen, company, storyDone, mockDone, sessionCount = 0, user, onSignOut }) {
   const items = [
     { id: "dashboard", icon: "⬡",  label: "Dashboard" },
     { id: "company",   icon: "🏢", label: "Company Intel",      done: !!company },
@@ -392,11 +393,13 @@ function Sidebar({ screen, setScreen, company, storyDone, mockDone, sessionCount
 
       {/* User */}
       <div style={{ padding: 12, borderTop: `1px solid ${C.g100}` }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px" }}>
-          <div style={{ width: 30, height: 30, borderRadius: "50%", background: C.purple, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700 }}>RA</div>
-          <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: C.g800 }}>Ravi A.</div>
-            <div style={{ fontSize: 11, color: C.g500 }}>Career switcher → PM</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px" }}>
+          <div style={{ width: 30, height: 30, borderRadius: "50%", background: C.purple, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, flexShrink: 0 }}>
+            {user?.email?.[0]?.toUpperCase() || "?"}
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 11, fontWeight: 600, color: C.g800, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user?.email || "Guest"}</div>
+            <button onClick={onSignOut} style={{ fontSize: 10, color: C.g400, background: "none", border: "none", cursor: "pointer", padding: 0, fontFamily: "inherit", marginTop: 2 }}>Sign out</button>
           </div>
         </div>
       </div>
@@ -1000,10 +1003,18 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
       .join("\n");
     try {
       const sys = `Evaluate this PM interview transcript on 11 dimensions. Be honest and specific — base every score and citation only on what actually appears in the transcript. Return ONLY valid JSON with NO markdown: {scores:{structure:{score:1-4,citation:string},crossq:{score,citation},discovery:{score,citation},empathy:{score,citation},prioritisation:{score,citation},tradeoffs:{score,citation},communication:{score,citation},storytelling:{score,citation},claimdepth:{score,citation},aipm:{score,citation},grounding:{score,citation}},overall:number(1dp average of all scores),topStrength:string,topWeakness:string,authenticityNote:string}`;
-      const result = await callClaudeJSON([{ role: "user", content: `Evaluate this transcript:\n\n${text}` }], sys, 1100, { retries: 2 });
-      // Sanity-check the shape before trusting it — never display malformed scores as if valid
-      const hasAllDims = DIMS.every(d => result?.scores?.[d.key]?.score >= 1 && result?.scores?.[d.key]?.score <= 4);
-      if (!hasAllDims || typeof result.overall !== "number") throw new Error("MALFORMED_SCORE_SHAPE");
+      const result = await callClaudeJSON([{ role: "user", content: `Evaluate this transcript:\n\n${text}` }], sys, 1500, { retries: 2 });
+      // Normalise: Groq sometimes returns numbers as strings — coerce before validating
+      if (typeof result.overall === 'string') result.overall = parseFloat(result.overall);
+      DIMS.forEach(d => {
+        const dim = result?.scores?.[d.key];
+        if (dim && typeof dim.score === 'string') dim.score = parseFloat(dim.score);
+      });
+      const hasAllDims = DIMS.every(d => {
+        const s = result?.scores?.[d.key]?.score;
+        return typeof s === 'number' && !isNaN(s) && s >= 1 && s <= 4;
+      });
+      if (!hasAllDims || typeof result.overall !== 'number' || isNaN(result.overall)) throw new Error("MALFORMED_SCORE_SHAPE");
       setScores(result);
       setScoringDone(true);
       onSessionComplete?.(result, type);
@@ -1293,11 +1304,16 @@ function FeedbackScreen({ scores, storyBank }) {
 
 // ── App ───────────────────────────────────────────────────────────────────────
 // ── Session History ────────────────────────────────────────────────────────
-function HistoryScreen({ sessionHistory, setScreen }) {
-  const [outcomes, setOutcomes] = useState({});
+function HistoryScreen({ sessionHistory, setScreen, onOutcomeUpdate }) {
+  const [outcomes, setOutcomes] = useState(() => {
+    const init = {};
+    sessionHistory.forEach(s => { if (s.outcome) init[s.id] = s.outcome; });
+    return init;
+  });
 
   function setOutcome(id, val) {
     setOutcomes(o => ({ ...o, [id]: val }));
+    onOutcomeUpdate?.(id, val);
   }
 
   if (sessionHistory.length === 0) return (
@@ -1375,19 +1391,53 @@ function HistoryScreen({ sessionHistory, setScreen }) {
 }
 
 
-export default function App() {
+export default function App({ user }) {
   const [screen, setScreen] = useState("dashboard");
   const [company, setCompany] = useState(null);
   const [storyBank, setStoryBank] = useState(null);
   const [scores, setScores] = useState(null);
   const [mockDone, setMockDone] = useState(false);
-  const [sessionHistory, setSessionHistory] = useState([]); // append-only log of completed sessions
+  const [sessionHistory, setSessionHistory] = useState([]);
+  const [dbLoading, setDbLoading] = useState(true);
 
-  function recordSession(sessionScores, mockType) {
+  // Load this user's persisted history and story bank on mount
+  useEffect(() => {
+    async function loadUserData() {
+      const [{ data: sessions }, { data: storyBanks }] = await Promise.all([
+        supabase.from('sessions').select('*').eq('user_id', user.id).order('created_at', { ascending: true }),
+        supabase.from('story_banks').select('*').eq('user_id', user.id).order('updated_at', { ascending: false }).limit(1),
+      ]);
+
+      if (sessions?.length) {
+        setSessionHistory(sessions.map(s => ({
+          id: s.id,
+          timestamp: new Date(s.created_at).toLocaleString(),
+          company: s.company,
+          type: s.mock_type,
+          overall: parseFloat(s.overall),
+          scores: s.scores,
+          topStrength: s.strength,
+          topWeakness: s.weakness,
+          outcome: s.outcome,
+        })));
+      }
+
+      if (storyBanks?.length) {
+        setStoryBank(storyBanks[0].bank);
+      }
+
+      setDbLoading(false);
+    }
+
+    loadUserData().catch(() => setDbLoading(false));
+  }, [user.id]);
+
+  async function recordSession(sessionScores, mockType) {
+    const id = crypto.randomUUID();
     setSessionHistory(h => [
       ...h,
       {
-        id: Date.now(),
+        id,
         timestamp: new Date().toLocaleString(),
         company: company?.name || "Unknown",
         type: mockType,
@@ -1397,7 +1447,49 @@ export default function App() {
         topWeakness: sessionScores.topWeakness,
       },
     ]);
+
+    supabase.from('sessions').insert({
+      id,
+      user_id: user.id,
+      company: company?.name || "Unknown",
+      mock_type: mockType,
+      overall: sessionScores.overall,
+      scores: sessionScores.scores,
+      strength: sessionScores.topStrength,
+      weakness: sessionScores.topWeakness,
+    }).then(({ error }) => { if (error) console.error('Session save failed:', error.message); });
   }
+
+  // Saves story bank optimistically; skips custom companies (no stable ID)
+  function saveStoryBank(bank) {
+    setStoryBank(bank);
+    if (!company?.id || company.id.startsWith('custom:')) return;
+    supabase.from('story_banks').upsert({
+      user_id: user.id,
+      company_id: company.id,
+      bank,
+      updated_at: new Date().toISOString(),
+    }, { onConflict: 'user_id,company_id' })
+      .then(({ error }) => { if (error) console.error('Story bank save failed:', error.message); });
+  }
+
+  function updateOutcome(sessionId, outcome) {
+    supabase.from('sessions').update({ outcome }).eq('id', sessionId).eq('user_id', user.id)
+      .then(({ error }) => { if (error) console.error('Outcome update failed:', error.message); });
+  }
+
+  function handleSignOut() {
+    supabase.auth.signOut();
+  }
+
+  if (dbLoading) return (
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif', background: '#F9FAFB' }}>
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: '#5B4FCF', marginBottom: 12 }}>Rethink</div>
+        <div style={{ fontSize: 13, color: '#6B7280' }}>Loading your history...</div>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -1413,15 +1505,15 @@ export default function App() {
       `}</style>
 
       <div style={{ display: "flex" }}>
-        <Sidebar screen={screen} setScreen={setScreen} company={company} storyDone={!!storyBank} mockDone={mockDone} sessionCount={sessionHistory.length} />
+        <Sidebar screen={screen} setScreen={setScreen} company={company} storyDone={!!storyBank} mockDone={mockDone} sessionCount={sessionHistory.length} user={user} onSignOut={handleSignOut} />
 
         <div style={{ marginLeft: 252, minHeight: "100vh", flex: 1, display: "flex", flexDirection: "column" }}>
           {screen === "dashboard" && <Dashboard setScreen={setScreen} company={company} storyDone={!!storyBank} mockDone={mockDone} scores={scores} sessionHistory={sessionHistory} />}
           {screen === "company"   && <CompanyScreen company={company} setCompany={setCompany} setScreen={setScreen} />}
-          {screen === "story"     && <StoryScreen storyBank={storyBank} setStoryBank={setStoryBank} setScreen={setScreen} company={company} />}
+          {screen === "story"     && <StoryScreen storyBank={storyBank} setStoryBank={saveStoryBank} setScreen={setScreen} company={company} />}
           {screen === "mock"      && <MockScreen storyBank={storyBank} company={company} setScores={setScores} setScreen={setScreen} mockDone={mockDone} setMockDone={setMockDone} onSessionComplete={recordSession} />}
           {screen === "feedback"  && <FeedbackScreen scores={scores} storyBank={storyBank} sessionHistory={sessionHistory} />}
-          {screen === "history"   && <HistoryScreen sessionHistory={sessionHistory} setScreen={setScreen} />}
+          {screen === "history"   && <HistoryScreen sessionHistory={sessionHistory} setScreen={setScreen} onOutcomeUpdate={updateOutcome} />}
         </div>
       </div>
     </>
