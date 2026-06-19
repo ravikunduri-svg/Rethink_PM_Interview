@@ -199,6 +199,12 @@ const COMPANY_FACTS = {
       "Strategic move: launched 'Priority' 8-minute delivery in select Bengaluru/Mumbai pockets (Dec 2025) at a premium fee — a direct competitive response to Blinkit in the speed race. Also restructured Instamart into a separate subsidiary (Swiggy Instamart Pvt Ltd), giving it optionality to raise separate capital. [Source: brineweb.com]",
       "Management has targeted Instamart contribution-margin breakeven between Dec 2025 and June 2026, contingent on AOV growth and non-grocery category adoption. [Source: narrativn.com]",
     ],
+    aiInitiatives: [
+      "ML-driven dynamic delivery time estimation (±2min accuracy); Instamart uses demand forecasting ML for dark store inventory optimization across 700+ stores",
+      "'Priority' 8-minute delivery uses real-time route optimization ML; personalized restaurant/dish recommendations via collaborative filtering drive ~30% of food orders",
+      "Swiggy One membership uses ML for offer personalization; surge pricing on delivery fees dynamically priced using real-time supply/demand models per micro-zone",
+    ],
+    founderPhilosophy: "Sriharsha Majety (CEO) is operationally rigorous and data-driven. Interviews test execution depth over strategy — 'how would you measure this?' is more likely than 'what is the 3-year vision?' PMs are expected to hold both speed-to-market and unit economics discipline simultaneously, especially given Instamart's path-to-profitability pressure.",
     likelyQuestions: [
       "How would you decide whether to launch an 8-minute delivery tier in a new city, given the dark-store density it requires?",
       "Instamart isn't yet profitable — how would you prioritize between scaling AOV (average order value) vs. cutting delivery costs?",
@@ -216,6 +222,12 @@ const COMPANY_FACTS = {
       "Primary competitive rivalry is the three-way 'quick commerce war' with Blinkit (Zomato-owned) and Swiggy Instamart — nearly identical value proposition (speed + convenience) targeting the same urban demographic. [Source: 42signals.com]",
       "Category expansion underway: Zepto Café and Zepto Kitchen (cloud kitchens) represent moves into higher-margin categories beyond core grocery. [Source: 42signals.com]",
     ],
+    aiInitiatives: [
+      "ML for dark store placement decisions — predictive demand mapping by pin code powers Zepto's core expansion strategy; real-time route optimization for 10-minute SLA",
+      "AI-driven advertising placement powers ₹1,636 crore ad revenue (151% YoY); dynamic surge pricing calibrated per delivery zone in real time",
+      "Zepto Café uses demand ML for SKU selection per location; ML for fraud detection and payment success rate optimization; pre-IPO AI investment earmarked explicitly in filing",
+    ],
+    founderPhilosophy: "Aadit Palicha (CEO, age 22) values aggressive speed and first-principles thinking over credentials or prior experience. Interview style: challenge your assumptions directly and prove you can operate at speed. 'What would you do in week one?' and 'why hasn't someone already done this?' are more likely than long-term roadmap questions. Frameworks without operational instinct are dismissed.",
     likelyQuestions: [
       "Zepto is leaning hard into advertising revenue to subsidize commissions — what are the risks of that strategy if ad spend slows?",
       "How would you decide which city to prioritize for Zepto Café expansion?",
@@ -233,6 +245,12 @@ const COMPANY_FACTS = {
       "AI-native product push for 2026 ('Sprint 2026'): AI agents for chargeback/dispute response, predictive cash-flow forecasting (3-7 days ahead), AI-assisted KYC/onboarding, and conversational commerce integrations allowing checkout inside ChatGPT and other LLM interfaces. [Source: razorpay.com/sprint/26]",
       "Revenue model: transaction fees on payment processing, premium subscriptions, and value-added financial services (lending, payroll) — a product-led growth motion emphasizing UX and self-serve trials before enterprise sales. [Source: commonroom.io]",
     ],
+    aiInitiatives: [
+      "Agent Studio (FTX 2026): world's first payment agent studio built on Anthropic's Claude Agent SDK — lets merchants deploy AI agents for payment ops, dispute resolution, revenue recovery",
+      "Active bets: AI agents for chargeback/dispute response, predictive cash-flow forecasting (3–7 days), AI-assisted KYC, conversational commerce checkout inside LLM interfaces",
+      "Internal AI mandate: all team members (including every PM) use enterprise AI tools (Claude, ChatGPT, Midjourney) daily; PMs expected to act as 'full-stack builders' shipping low-complexity initiatives independently",
+    ],
+    founderPhilosophy: "Harshil Mathur (CEO) and CPO Khilan Haria have stated PMs must be 'full-stack builders' who can ship independently. Technical depth is table stakes — expect questions on API design, system constraints, and whether you can build it yourself. The interview explicitly tests whether you blur the line between product and engineering, not just coordinate between them.",
     likelyQuestions: [
       "Razorpay mandated AI tool usage across all PM workflows — how would you measure whether that's actually improving product quality vs. just speed?",
       "How would you design an AI agent for dispute resolution while making sure merchants still trust the outcome?",
@@ -249,6 +267,12 @@ const COMPANY_FACTS = {
       "Parent Walmart's FY26 strategy explicitly emphasizes 'higher-margin commerce solutions,' automation/productivity investment, and disciplined ROI-based capital allocation across AI and tech investment — directly shaping how much capital Flipkart can expect for aggressive growth bets vs. profitability focus. [Source: Walmart Inc. FY26 SEC filings]",
       "Flipkart is reportedly preparing for its own IPO (alongside Meesho's Dec 2025 listing and expected Oyo/PhonePe listings), signaling a maturing, scrutiny-heavy phase for the Indian e-commerce sector overall. [Source: TechCrunch]",
     ],
+    aiInitiatives: [
+      "Personalized product recommendations powered by ML (accounts for 35%+ of GMV); visual search and voice commerce in regional languages for Tier 2/3 users",
+      "Dynamic pricing ML competes in real-time against Amazon; ML-driven inventory placement in Ekart warehouses reduces last-mile cost per delivery",
+      "Post-IPO GenAI investment in seller tools, customer support automation, and AI-assisted catalog quality — framed as efficiency and margin improvement under Walmart's ROI discipline",
+    ],
+    founderPhilosophy: "Flipkart operates as a large, Walmart-owned organization with structured processes. Interview style leans metrics-first and execution-focused. Kalyan Krishnamurthy (CEO) drives ROI discipline — expect 'how do you know it worked?', stakeholder alignment questions, and trade-off reasoning between Flipkart's business units (Myntra, Ekart, fintech). Vision must be grounded in measurable outcomes.",
     likelyQuestions: [
       "Meesho's zero-commission model is pressuring Flipkart in value segments — how would you respond as a Flipkart PM?",
       "How would you decide whether to invest more in Ekart logistics infrastructure vs. marketing spend for a new category launch?",
@@ -265,6 +289,12 @@ const COMPANY_FACTS = {
       "Processes roughly 20-22% of all Indian credit card bill payments; reached 13M+ monthly active users by mid-2024 despite the strict eligibility gate, though MAU growth plateaued for 16 consecutive months between late 2022 and early 2024 — a frequently-cited growth-stall case study. [Source: iide.co, valueforstartups.in]",
       "CRED's own thesis (per founder Kunal Shah) is that 'trust is India's scarcest resource' and the company is built to monetize trust rather than transactions — explicitly contrasted against transactional-efficiency players like Razorpay. [Source: iide.co]",
     ],
+    aiInitiatives: [
+      "ML for credit risk scoring augments CIBIL; personalized offer targeting in CRED Store uses behavioral ML to match premium users to relevant brands before they search",
+      "CRED Pay uses ML to optimize UPI transaction success rates; fraud detection ML is central given high-credit-score users are a premium target for financial fraud",
+      "Kunal Shah describes AI's role as 'trust infrastructure' — surfacing the right creditworthy offer before users ask, rather than showing catalogs and waiting for intent",
+    ],
+    founderPhilosophy: "Kunal Shah (CEO) is a contrarian thinker who distrusts PM frameworks. Famous for philosophical interview questions: 'What is your relationship with money?', 'What does trust mean in a transaction?', 'What is the most undervalued thing in India?' Expects first-principles reasoning, not structured templates. Concepts and judgment over process. A framework answer is a red flag.",
     likelyQuestions: [
       "CRED charges nothing for its core action but built a large ecosystem around it — how would you decide what to build next to monetize trust without breaking it?",
       "MAU growth plateaued for over a year despite viral marketing — as a PM, how would you diagnose what's actually causing a growth plateau like that?",
@@ -282,6 +312,12 @@ const COMPANY_FACTS = {
       "FY25 revenue grew 23% YoY with the company reporting improving free cash flow and unit economics — a notable shift from its earlier loss-heavy growth phase. Post-IPO, the company has flagged plans to invest raised capital in cloud infrastructure, AI/ML, and logistics scaling. [Source: indiaobservers.com]",
       "Explicitly compares itself to Pinduoduo (China), Shopee (Southeast Asia), and Mercado Libre (Latin America) as its closest global strategic analogues — useful framing for any answer about Meesho's positioning. [Source: TechCrunch]",
     ],
+    aiInitiatives: [
+      "Personalized catalog ranking ML is Meesho's core discovery engine — critical for 187M+ users in Tier 2/3 cities with high browse behavior and low active search intent",
+      "AI-driven seller onboarding quality checks (catalog images, pricing compliance); logistics route optimization via Valmo using demand forecasting by pin code",
+      "Post-IPO capital specifically earmarked for AI/ML and cloud infrastructure; building catalog intelligence to compete on discovery without matching Amazon/Flipkart's ad spend",
+    ],
+    founderPhilosophy: "Vidit Aatrey (CEO) is mission-driven around social commerce for Bharat — the next 100 million Indian internet users, not metro millennials. Interview focus: empathy for Tier 2/3 users who are price-sensitive, WhatsApp-native, and trust-deficient. Expect 'why would a homemaker in Indore use this over WhatsApp status?' over 'what is your GTM strategy?' Designing for low-bandwidth, low-trust, low-literacy contexts is table stakes.",
     likelyQuestions: [
       "Meesho doesn't charge seller commissions like Flipkart or Amazon — how would you think about monetization trade-offs if ad revenue growth slows?",
       "85%+ of users are in Tier 2+ cities — how would that change your approach to product design vs. a metro-first product?",
@@ -312,6 +348,110 @@ const DIMS = [
   { key: "aipm",           label: "AI product thinking" },
   { key: "grounding",      label: "Story grounding (authenticity)" },
 ];
+
+// Behavioral anchors per dimension per band — shown in FeedbackScreen rubric expansion
+const DIM_ANCHORS = {
+  structure:      { 1: "No framework visible — jumps between ideas without guiding logic", 2: "Structure attempted but collapses under follow-up — hard to follow the thread", 3: "Clear arc (situation → approach → outcome) maintained throughout", 4: "Crisp, consistent structure that guides the listener without effort — never needs prompting to organize" },
+  crossq:         { 1: "No clarifying questions asked — assumes scope and jumps straight to an answer", 2: "Surface-level clarifications asked but misses the key ambiguities that would change the approach", 3: "Asks relevant questions that uncover real constraints or user context before committing", 4: "Probes systematically — scope, user, success metrics, constraints — and knows what information changes the answer" },
+  discovery:      { 1: "Skips discovery entirely — pitches a solution to an assumed or unstated problem", 2: "Asks a few questions but moves to solution before understanding root cause", 3: "Validates the problem and user segment before proposing; asks about root cause and context", 4: "Rigorous discovery — root cause, affected user segment, frequency, existing workarounds, business impact — before any solution" },
+  empathy:        { 1: "No user or business perspective referenced — answer is abstract or feature-focused", 2: "Mentions users or business constraints in passing without grounding claims in specifics", 3: "Concrete user needs AND business constraints both present and balanced", 4: "Named user segment, specific pain with evidence, AND clear business model implication — balanced and integrated throughout" },
+  prioritisation: { 1: "No prioritisation logic — items listed without criteria or picked arbitrarily", 2: "Some prioritisation stated but criteria not explained or consistently applied", 3: "Clear criteria (impact/effort, user value, strategic fit) applied and explained", 4: "Explicit trade-offs acknowledged; explains what was cut and why; criteria tied to the specific business goal" },
+  tradeoffs:      { 1: "No trade-offs mentioned — presents one path as obviously correct without acknowledging the downside", 2: "Acknowledges trade-offs exist but doesn't engage with them or name them", 3: "Names the specific downside of the chosen approach and explains why it was accepted", 4: "Maps multiple options with trade-offs; explains why this option wins given the specific constraints and stage" },
+  communication:  { 1: "Rambling, repetitive, or circular — hard to follow the main point", 2: "Gets to the point eventually but over-explains along the way", 3: "Clear and direct — listener can follow without effort", 4: "Precisely calibrated — right level of detail, no wasted words, confident without being dismissive" },
+  storytelling:   { 1: "No narrative structure — bullet-dump or stream of consciousness", 2: "Story present but either overexplained or understructured; role unclear", 3: "Clear situation → personal action → measurable outcome arc; appropriate length", 4: "Compelling, concrete, concise — situation is vivid, personal role is unambiguous, outcome is specific and verifiable" },
+  claimdepth:     { 1: "Claims asserted without evidence — 'we improved conversion', no number, no method, no ownership", 2: "Numbers cited but shallow — can't explain how measured or what specifically changed", 3: "Claims backed with specific metrics and context; can explain the measurement approach", 4: "Every claim has a specific number, a named decision, a causal explanation, and survives a follow-up probe" },
+  aipm:           { 1: "No AI thinking surfaced — treats every product problem as pre-AI", 2: "Mentions AI generically ('we could use ML') without a concrete use case", 3: "Identifies a concrete AI use case with a plausible implementation and a success metric", 4: "AI use case with specific approach, named failure modes, measurement plan, and user trust consideration" },
+  grounding:      { 1: "Stories feel generic — could describe anyone's work; no unique personal details", 2: "Some personal detail but key claims (metrics, decisions) are vague or team-attributed", 3: "Clear personal ownership — specific numbers; can name a decision that was theirs alone", 4: "Every claim is probe-resistant — specific enough that no one else could have given this exact answer" },
+};
+
+// Plain-language patterns for each dimension — used by Weakness Engine
+const DIM_PATTERNS = {
+  structure:      "jumping into answers without a clear framework",
+  crossq:         "not asking enough clarifying questions before solving",
+  discovery:      "skipping problem validation — pitching before discovering",
+  empathy:        "not grounding answers in specific user needs or business reality",
+  prioritisation: "not making trade-offs explicit when deciding what to build",
+  tradeoffs:      "avoiding hard trade-off reasoning — answers don't acknowledge the downside",
+  communication:  "over-explaining — answers could be shorter and more direct",
+  storytelling:   "stories lack structure: situation, role, outcome aren't distinct",
+  claimdepth:     "claims without backing — interviewers probe through these gaps",
+  aipm:           "not connecting product thinking to AI opportunities or failure modes",
+  grounding:      "answers feel generic — missing specific details only you would know",
+};
+
+// Returns cross-session weakness insights — requires 3+ sessions with dimension scores
+function getWeaknessInsights(sessionHistory) {
+  const withScores = sessionHistory.filter(s => s.scores && typeof s.scores === "object");
+  if (withScores.length < 3) return null;
+  const last3 = withScores.slice(-3);
+
+  const dimAvgs = DIMS.map(d => {
+    const vals = last3
+      .map(s => { const v = s.scores?.[d.key]?.score; return typeof v === "number" ? v : null; })
+      .filter(v => v !== null);
+    if (vals.length === 0) return null;
+    return { key: d.key, label: d.label, avg: parseFloat((vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(1)) };
+  }).filter(Boolean).sort((a, b) => a.avg - b.avg);
+
+  const all = withScores.slice(-Math.min(withScores.length, 5));
+  const improving = DIMS.map(d => {
+    if (all.length < 2) return null;
+    const first = all[0].scores?.[d.key]?.score;
+    const last = all[all.length - 1].scores?.[d.key]?.score;
+    if (typeof first !== "number" || typeof last !== "number" || last <= first) return null;
+    return { key: d.key, label: d.label, delta: parseFloat((last - first).toFixed(1)) };
+  }).filter(Boolean).sort((a, b) => b.delta - a.delta).slice(0, 2);
+
+  return { weakest: dimAvgs.slice(0, 3), improving, sessionCount: withScores.length };
+}
+
+// Weakness Engine card — shown in Dashboard and History after 3+ sessions
+function WeaknessInsights({ insights }) {
+  if (!insights) return null;
+  const sc = s => s >= 3 ? C.teal : s >= 2 ? C.amber : C.red;
+  return (
+    <div style={{ background: C.white, border: `1px solid ${C.g200}`, borderRadius: 14, padding: "20px 24px", boxShadow: "0 1px 3px rgba(0,0,0,.06)", marginBottom: 20 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: 14 }}>Weakness Engine</div>
+          <div style={{ fontSize: 12, color: C.g500, marginTop: 2 }}>Patterns across your last {Math.min(insights.sessionCount, 3)} sessions — what interviewers are consistently catching</div>
+        </div>
+        <Badge color="amber">{insights.sessionCount} sessions</Badge>
+      </div>
+
+      <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".07em", color: C.red, marginBottom: 10 }}>
+        Consistent gaps — focus here first
+      </div>
+      {insights.weakest.map((d, i) => (
+        <div key={d.key} style={{ display: "flex", alignItems: "center", gap: 12, padding: "9px 0", borderBottom: i < insights.weakest.length - 1 ? `1px solid ${C.g100}` : "none" }}>
+          <div style={{ width: 38, height: 38, borderRadius: 8, background: C.amberL, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Georgia,serif", fontSize: 14, fontWeight: 700, color: sc(d.avg), flexShrink: 0 }}>{d.avg}</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: C.g800 }}>{d.label}</div>
+            <div style={{ fontSize: 11, color: C.g500, lineHeight: 1.5, marginTop: 1 }}>{DIM_PATTERNS[d.key]}</div>
+          </div>
+          <div style={{ width: 80, flexShrink: 0 }}>
+            <div style={{ height: 5, background: C.g200, borderRadius: 99 }}>
+              <div style={{ height: "100%", width: `${(d.avg / 4) * 100}%`, background: sc(d.avg), borderRadius: 99 }} />
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {insights.improving.length > 0 && (
+        <div style={{ paddingTop: 12, marginTop: 4, borderTop: `1px solid ${C.g100}` }}>
+          <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".07em", color: C.teal, marginBottom: 8 }}>
+            Getting stronger
+          </div>
+          {insights.improving.map(d => (
+            <div key={d.key} style={{ fontSize: 12, color: C.g700, marginBottom: 4 }}>
+              <span style={{ color: C.teal, fontWeight: 700 }}>↑ +{d.delta}</span> {d.label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
 const C = {
@@ -401,6 +541,7 @@ function Sidebar({ screen, setScreen, company, storyDone, mockDone, sessionCount
     { id: "mock",      icon: "🎯", label: "Mock Interview",     done: mockDone },
     { id: "feedback",  icon: "📊", label: "Feedback & Scores",  done: mockDone },
     { id: "history",   icon: "📈", label: "Session History",    count: sessionCount },
+    { id: "coach",     icon: "⭐", label: "Story Coach" },
   ];
 
   return (
@@ -434,7 +575,7 @@ function Sidebar({ screen, setScreen, company, storyDone, mockDone, sessionCount
         ))}
 
         <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.g400, padding: "16px 8px 4px" }}>Coming soon</div>
-        {["Weakness Engine", "HM Intelligence"].map(l => (
+        {["HM Intelligence"].map(l => (
           <div key={l} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px", fontSize: 13, color: C.g400, opacity: .5 }}>
             <span>◦</span>{l}
           </div>
@@ -473,6 +614,11 @@ function Dashboard({ setScreen, company, storyDone, mockDone, scores, sessionHis
   const scoreColor = overall >= 3 ? C.teal : overall >= 2 ? C.amber : C.red;
   const trend = sessionHistory.length >= 2 ? sessionHistory[sessionHistory.length - 1].overall - sessionHistory[0].overall : null;
 
+  const offersCount = sessionHistory.filter(s => s.outcome === "Got an offer").length;
+  const rejectionsCount = sessionHistory.filter(s => s.outcome === "Rejected").length;
+  const conversionDenom = offersCount + rejectionsCount;
+  const conversionRate = conversionDenom > 0 ? Math.round((offersCount / conversionDenom) * 100) : null;
+
   return (
     <div>
       <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -504,11 +650,17 @@ function Dashboard({ setScreen, company, storyDone, mockDone, scores, sessionHis
         </Card>
 
         {/* Stats */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginBottom: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16, marginBottom: 20 }}>
           {[
             { val: company?.name || "—", label: "Target company" },
             { val: sessionHistory.length, label: "Mocks completed", onClick: () => setScreen("history") },
             { val: overall ? `${overall}/4` : "—", label: "Latest readiness score", color: overall ? scoreColor : C.g400 },
+            {
+              val: conversionRate !== null ? `${conversionRate}%` : "—",
+              label: conversionDenom > 0 ? `Offer rate (${offersCount}/${conversionDenom} real interviews)` : "Offer rate (no outcomes yet)",
+              color: conversionRate !== null ? (conversionRate >= 50 ? C.teal : C.amber) : C.g400,
+              onClick: () => setScreen("history"),
+            },
           ].map(m => (
             <div key={m.label} onClick={m.onClick} style={{ background: C.g50, border: `1px solid ${C.g200}`, borderRadius: 10, padding: "14px 16px", textAlign: "center", cursor: m.onClick ? "pointer" : "default" }}>
               <div style={{ fontFamily: "Georgia,serif", fontSize: 24, fontWeight: 700, color: m.color || C.g900 }}>{m.val}</div>
@@ -520,14 +672,16 @@ function Dashboard({ setScreen, company, storyDone, mockDone, scores, sessionHis
         {trend !== null && (
           <InfoBox type={trend > 0 ? "success" : "info"}>
             {trend > 0
-              ? `📈 You've improved by ${trend.toFixed(1)} points across your ${sessionHistory.length} sessions. `
+              ? `You've improved by ${trend.toFixed(1)} points across your ${sessionHistory.length} sessions. `
               : `Your scores across ${sessionHistory.length} sessions haven't moved much yet. `}
             <a onClick={() => setScreen("history")} style={{ color: C.purple, cursor: "pointer", textDecoration: "underline" }}>View full session history →</a>
           </InfoBox>
         )}
 
+        <WeaknessInsights insights={getWeaknessInsights(sessionHistory)} />
+
         <InfoBox type="info">
-          <strong>💡 Why Rethink is different:</strong> Every competitor helps you <em>sound better</em>. Rethink helps you sound more like <em>yourself</em> — by mining your real work first, then testing whether your answers hold up under the same deep probing real interviewers use. Unnati (Founder, Rethink Systems): <em>"Most rejections happen because candidates can't justify the projects they put on their resume."</em>
+          <strong>Why Rethink is different:</strong> Every competitor helps you <em>sound better</em>. Rethink helps you sound more like <em>yourself</em> — by mining your real work first, then testing whether your answers hold up under the same deep probing real interviewers use. Unnati (Founder, Rethink Systems): <em>"Most rejections happen because candidates can't justify the projects they put on their resume."</em>
         </InfoBox>
       </div>
     </div>
@@ -547,6 +701,7 @@ function CompanyScreen({ company, setCompany, setScreen }) {
   const [searchConfirmed, setSearchConfirmed] = useState(false);
   const [customName, setCustomName] = useState("");
   const [mode, setMode] = useState("preset"); // "preset" | "custom"
+  const [flagged, setFlagged] = useState({}); // { [sectionKey]: { note, submitted } }
 
   // ── Preset companies: pre-verified static facts (highest confidence) ──
   async function loadBrief(c) {
@@ -637,11 +792,51 @@ Return ONLY valid JSON, no markdown, no explanation.`;
     setLoading(false);
   }
 
-  const Section = ({ title, data }) => (
+  function submitFlag(key, note) {
+    setFlagged(f => ({ ...f, [key]: { note, submitted: true } }));
+  }
+
+  function FlagInline({ sectionKey }) {
+    const state = flagged[sectionKey];
+    const [open2, setOpen2] = useState(false);
+    const [note, setNote] = useState("");
+    if (state?.submitted) {
+      return <span style={{ fontSize: 10, color: C.teal, marginLeft: 6, fontStyle: "italic" }}>✓ Flagged — thank you</span>;
+    }
+    if (!open2) {
+      return (
+        <button
+          onClick={e => { e.stopPropagation(); setOpen2(true); }}
+          title="Flag an inaccuracy in this section"
+          style={{ fontSize: 10, color: C.g400, background: "none", border: `1px solid ${C.g200}`, borderRadius: 4, padding: "1px 6px", cursor: "pointer", fontFamily: "inherit", marginLeft: 6, flexShrink: 0 }}>
+          ⚑ Flag error
+        </button>
+      );
+    }
+    return (
+      <span onClick={e => e.stopPropagation()} style={{ display: "inline-flex", alignItems: "center", gap: 4, marginLeft: 6 }}>
+        <input
+          autoFocus
+          value={note}
+          onChange={e => setNote(e.target.value)}
+          onKeyDown={e => { if (e.key === "Enter" && note.trim()) submitFlag(sectionKey, note); if (e.key === "Escape") setOpen2(false); }}
+          placeholder="Describe the error (press Enter)"
+          style={{ fontSize: 11, padding: "2px 8px", borderRadius: 4, border: `1px solid ${C.purple}`, outline: "none", fontFamily: "inherit", width: 200 }}
+        />
+        <button onClick={() => note.trim() && submitFlag(sectionKey, note)} style={{ fontSize: 10, background: C.purple, color: "#fff", border: "none", borderRadius: 4, padding: "2px 8px", cursor: "pointer", fontFamily: "inherit" }}>Submit</button>
+        <button onClick={() => setOpen2(false)} style={{ fontSize: 10, background: "none", color: C.g400, border: "none", cursor: "pointer", fontFamily: "inherit" }}>✕</button>
+      </span>
+    );
+  }
+
+  const Section = ({ title, data, sectionKey }) => (
     <div style={{ border: `1px solid ${C.g200}`, borderRadius: 8, overflow: "hidden", marginBottom: 8 }}>
       <div onClick={() => setOpen(o => ({ ...o, [title]: !o[title] }))} style={{ padding: "9px 14px", background: C.g50, display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", borderBottom: open[title] ? `1px solid ${C.g200}` : "none" }}>
-        <span style={{ fontSize: 12, fontWeight: 600, color: C.g700 }}>{title}</span>
-        <span style={{ color: C.g400, fontSize: 11 }}>{open[title] ? "▲" : "▼"}</span>
+        <span style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+          <span style={{ fontSize: 12, fontWeight: 600, color: C.g700 }}>{title}</span>
+          {verified && sectionKey && <FlagInline sectionKey={sectionKey} />}
+        </span>
+        <span style={{ color: C.g400, fontSize: 11, flexShrink: 0, marginLeft: 8 }}>{open[title] ? "▲" : "▼"}</span>
       </div>
       {open[title] && (
         <div style={{ padding: "10px 14px", fontSize: 12, color: C.g700, lineHeight: 1.7 }}>
@@ -748,20 +943,29 @@ Return ONLY valid JSON, no markdown, no explanation.`;
               <div style={{ fontSize: 12, color: C.amber, marginBottom: 10, fontStyle: "italic" }}>ℹ️ {brief.confidenceNote}</div>
             )}
 
-            <div style={{ fontSize: 13, color: C.g700, marginBottom: 14, padding: "10px 14px", background: C.purpleL, borderRadius: 8, borderLeft: `3px solid ${C.purple}` }}>
-              <strong>Mission:</strong> {brief.mission}
+            <div style={{ fontSize: 13, color: C.g700, marginBottom: 14, padding: "10px 14px", background: C.purpleL, borderRadius: 8, borderLeft: `3px solid ${C.purple}`, display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+              <div><strong>Mission:</strong> {brief.mission}</div>
+              {verified && <FlagInline sectionKey="mission" />}
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
               {[
-                ["📦 Products", brief.products],
-                ["💰 Business model", brief.businessModel],
-                ["⚔️ Competitive position", brief.competitivePosition],
-                ["🚀 Recent strategic moves", brief.strategicMoves],
-              ].map(([t, d]) => <Section key={t} title={t} data={d} />)}
+                ["📦 Products", brief.products, "products"],
+                ["💰 Business model", brief.businessModel, "businessModel"],
+                ["⚔️ Competitive position", brief.competitivePosition, "competitivePosition"],
+                ["🚀 Recent strategic moves", brief.strategicMoves, "strategicMoves"],
+              ].map(([t, d, k]) => <Section key={t} title={t} data={d} sectionKey={k} />)}
+              {verified?.aiInitiatives && <Section title="🤖 AI initiatives" data={verified.aiInitiatives} sectionKey="aiInitiatives" />}
             </div>
-            <div style={{ marginTop: 8, padding: "10px 14px", background: C.amberL, borderRadius: 8, fontSize: 12, color: "#92400E" }}>
-              <strong>🎯 Key tension to think through:</strong> {brief.keyTension}
+            <div style={{ marginTop: 8, padding: "10px 14px", background: C.amberL, borderRadius: 8, fontSize: 12, color: "#92400E", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+              <div><strong>Key tension to think through:</strong> {brief.keyTension}</div>
+              {verified && <FlagInline sectionKey="keyTension" />}
             </div>
+            {verified?.founderPhilosophy && (
+              <div style={{ marginTop: 8, padding: "10px 14px", background: C.purpleL, borderRadius: 8, fontSize: 12, color: C.purpleD, borderLeft: `3px solid ${C.purple}`, display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+                <div><strong>Founder philosophy & interview style:</strong> {verified.founderPhilosophy}</div>
+                <FlagInline sectionKey="founderPhilosophy" />
+              </div>
+            )}
 
             {likelyQuestions.length > 0 && (
               <div style={{ marginTop: 16, paddingTop: 14, borderTop: `1px solid ${C.g200}` }}>
@@ -1008,12 +1212,25 @@ function StoryScreen({ storyBank, setStoryBank, setScreen, company }) {
       </div>
       <div style={{ padding: "28px 32px" }}>
         <InfoBox type="success">✅ <strong>Story Bank complete.</strong> Your mock will be conditioned on these cards — the interviewer knows exactly which projects to probe and which claims to test.</InfoBox>
-        {bank.map((card, i) => (
-          <Card key={i} style={{ marginBottom: 14 }}>
+        {bank.map((card, i) => {
+          const metricsWeak = !card.metrics || card.metrics.length < 25 || /not specified|not mentioned|unclear|missing|unknown/i.test(card.metrics);
+          const contributionWeak = !card.personalContribution || card.personalContribution.length < 25 || /not specified|not mentioned|unclear|missing|unknown/i.test(card.personalContribution);
+          const isVague = metricsWeak || contributionWeak;
+          return (
+          <Card key={i} style={{ marginBottom: 14, border: isVague ? `1.5px solid #FCD34D` : undefined }}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
               <div style={{ fontWeight: 700, fontSize: 14 }}>{card.projectTitle} · {card.company}</div>
-              <Badge color="teal">✓ Probe-ready</Badge>
+              {isVague
+                ? <Badge color="amber">Strengthen before mock</Badge>
+                : <Badge color="teal">✓ Probe-ready</Badge>
+              }
             </div>
+            {isVague && (
+              <div style={{ fontSize: 11, color: "#92400E", background: C.amberL, padding: "6px 10px", borderRadius: 6, marginBottom: 10 }}>
+                {metricsWeak && <div>• Impact metrics are vague or missing — add a specific number before your mock</div>}
+                {contributionWeak && <div>• Your personal contribution isn't specific enough — name the decision you made alone</div>}
+              </div>
+            )}
             <div style={{ fontSize: 15, fontStyle: "italic", color: C.g800, marginBottom: 12, fontFamily: "Georgia,serif", fontWeight: 300 }}>"{card.coreClaim}"</div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 10 }}>
               <div style={{ fontSize: 12, color: C.g700 }}><strong style={{ color: C.teal }}>Impact:</strong> {card.metrics}</div>
@@ -1024,14 +1241,15 @@ function StoryScreen({ storyBank, setStoryBank, setScreen, company }) {
               <div key={j} style={{ background: C.g50, borderLeft: `3px solid ${C.purpleM}`, padding: "7px 12px", borderRadius: "0 6px 6px 0", marginBottom: 5, fontSize: 11, color: C.g600, fontStyle: "italic" }}>💬 {p}</div>
             ))}
           </Card>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
 }
 
 // ── Mock Interview ────────────────────────────────────────────────────────────
-function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMockDone, onSessionComplete }) {
+function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMockDone, onSessionComplete, setAutopsy, setAutopsyError }) {
   const [type, setType] = useState(null);
   const [msgs, setMsgs] = useState([]);
   const [input, setInput] = useState("");
@@ -1061,12 +1279,14 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
       `Project: ${c.projectTitle} at ${c.company}. Claim: "${c.coreClaim}". Impact: ${c.metrics}. Personal contribution: ${c.personalContribution}. Probe these: ${c.followUpProbes?.join("; ")}`
     ).join("\n") || "No story bank — probe any claims they make.";
 
-    if (t === "founder") return `You are the founder of ${company?.name || "a startup"} interviewing a PM candidate. Be direct, skeptical, test thinking not frameworks. Story bank:\n${ctx}\n\nRULES: 1) Open with "Tell me about the most important product you worked on — and I mean YOU, not your team." 2) Probe 2-3 levels deep on any claim: "Walk me through that metric exactly", "What did YOU personally do vs your team?", "What decision only you made?" 3) Ask uncomfortable questions: "Why haven't you shipped more?", "Convince me your MVP thinking is enough", "What assumptions might be wrong?" 4) One question per turn, under 3 sentences. 5) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically.`;
+    if (t === "founder") return `You are the founder of ${company?.name || "a startup"} interviewing a PM candidate. Be direct, skeptical, test thinking not frameworks. Story bank:\n${ctx}\n\nRULES: 1) Open with "Tell me about the most important product you worked on — and I mean YOU, not your team." 2) Probe 2-3 levels deep on any claim: "Walk me through that metric exactly", "What did YOU personally do vs your team?", "What decision only you made?" 3) Ask uncomfortable questions: "Why haven't you shipped more?", "Convince me your MVP thinking is enough", "What assumptions might be wrong?" 4) One question per turn, under 3 sentences. 5) At some point mid-conversation ask exactly one AI product thinking question, woven naturally — e.g. "How would you use AI to improve what you built?", "What would break if you added an LLM to this?", or "How would you measure whether an AI recommendation is actually working?" 6) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically.`;
 
     return `You are conducting a Product Discovery interview at ${company?.name || "a company"}. Play a user persona (teacher, patient, delivery partner — pick one). Candidate must discover the problem, not pitch solutions. Story bank:\n${ctx}\n\nRULES: 1) Open with an ambiguous situation as that persona: "I'm struggling and I need help." 2) Make them ask YOU questions. If they jump to a solution say "Wait — you haven't asked about my actual problem." 3) Reward good clarifying questions with depth; give vague answers to bad ones. 4) After good discovery ask "What specifically would you build first and why?" then probe their reasoning. 5) One message per turn, under 3 sentences. 6) NEVER say goodbye, wrap up, or end the conversation yourself — the system ends it automatically. 7) CRITICAL: NEVER suggest, hint at, or prompt specific questions for the candidate to ask. Do not say things like "You could ask about..." or "Have you considered asking..." or "A good question would be...". They must discover questions themselves. You only evaluate the quality of questions they actually ask — you never supply them.`;
   }
 
   function start(t) {
+    setAutopsy?.(null);
+    setAutopsyError?.(null);
     const opening = t === "founder"
       ? `Tell me about the most important product you worked on — and I mean YOU, not your team.`
       : `Hi, I need some help. I'm a school teacher and things have been really difficult lately. I heard ${company?.name || "you"} might be able to help.`;
@@ -1083,7 +1303,7 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
       .map(m => `${m.role === "candidate" ? "CANDIDATE" : "INTERVIEWER"}: ${m.content}`)
       .join("\n");
     try {
-      const sys = `Evaluate this PM interview transcript on 11 dimensions. Be honest and specific — base every score and citation only on what actually appears in the transcript. Return ONLY valid JSON with NO markdown: {scores:{structure:{score:1-4,citation:string},crossq:{score,citation},discovery:{score,citation},empathy:{score,citation},prioritisation:{score,citation},tradeoffs:{score,citation},communication:{score,citation},storytelling:{score,citation},claimdepth:{score,citation},aipm:{score,citation},grounding:{score,citation}},overall:number(1dp average of all scores),topStrength:string,topWeakness:string,authenticityNote:string}`;
+      const sys = `Evaluate this PM interview transcript on 11 dimensions. Be honest and specific — base every score and citation only on what actually appears in the transcript. Return ONLY valid JSON with NO markdown: {scores:{structure:{score:1-4,citation:string},crossq:{score,citation},discovery:{score,citation},empathy:{score,citation},prioritisation:{score,citation},tradeoffs:{score,citation},communication:{score,citation},storytelling:{score,citation},claimdepth:{score,citation},aipm:{score,citation},grounding:{score,citation}},overall:number(1dp average of all scores),topStrength:string,topWeakness:string,authenticityNote:string,pmCoachingSignals:string[](2-4 specific thinking-pattern observations with turn citations — e.g. "Jumped to solution without validating the user problem (Turn 3)", "Never defined success metrics despite two opportunities to do so", "Used we/team language throughout — no decision was claimed personally")}`;
       const result = await callClaudeJSON([{ role: "user", content: `Evaluate this transcript:\n\n${text}` }], sys, 1500, { retries: 2 });
       // Normalise: Groq sometimes returns numbers as strings — coerce before validating
       if (typeof result.overall === 'string') result.overall = parseFloat(result.overall);
@@ -1096,6 +1316,7 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
         return typeof s === 'number' && !isNaN(s) && s >= 1 && s <= 4;
       });
       if (!hasAllDims || typeof result.overall !== 'number' || isNaN(result.overall)) throw new Error("MALFORMED_SCORE_SHAPE");
+      if (!Array.isArray(result.pmCoachingSignals)) result.pmCoachingSignals = [];
       setScores(result);
       setScoringDone(true);
       onSessionComplete?.(result, type);
@@ -1113,12 +1334,58 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
     if (pendingTranscript) buildScores(pendingTranscript);
   }
 
+  async function buildAutopsy(transcript) {
+    if (!setAutopsy) return;
+    const text = transcript
+      .filter(m => m.role !== "system")
+      .map((m, i) => `Turn ${Math.ceil((i + 1) / 2)} — ${m.role === "candidate" ? "CANDIDATE" : "INTERVIEWER"}: ${m.content}`)
+      .join("\n");
+    try {
+      const sys = `You are doing a post-mortem on a PM interview. Find the exact moments where the candidate lost credibility.
+
+Analyze this transcript and return ONLY valid JSON, no markdown:
+{
+  "turningPoint": {
+    "turnNumber": number,
+    "interviewerQuestion": string (exact quote from transcript),
+    "candidateAnswer": string (exact quote, max 200 chars — truncate with ... if longer),
+    "gap": string (2 sentences: what the interviewer actually heard, and why this damaged credibility)
+  },
+  "weakMoments": [
+    {
+      "interviewerQuestion": string (exact quote),
+      "candidateAnswer": string (exact quote, max 150 chars),
+      "gap": string (the specific problem with this answer — be precise, not generic),
+      "modelAnswer": string (what a strong 4/4 answer looks like — specific, first-person, with a real number or named decision, 2-3 sentences)
+    }
+  ],
+  "drillQuestion": string (the single most important question from the transcript to practice again — exact quote)
+}
+
+Rules:
+- weakMoments must have exactly 3 items, ordered worst to less-bad
+- turningPoint is the single exchange that most damaged credibility — not just a weak answer but a credibility shift
+- modelAnswer must be concrete and first-person — not generic advice like "be more specific"
+- drillQuestion must be taken verbatim from the transcript`;
+      const result = await callGroqJSON(
+        [{ role: "user", content: `Analyze this PM interview transcript:\n\n${text}` }],
+        sys, 1400, { retries: 1 }
+      );
+      if (!result.turningPoint || !Array.isArray(result.weakMoments) || result.weakMoments.length < 3 || !result.drillQuestion) {
+        throw new Error("MALFORMED_AUTOPSY");
+      }
+      setAutopsy(result);
+    } catch (e) {
+      setAutopsyError?.(friendlyError(e));
+    }
+  }
+
   async function endSession(finalMsgs) {
     const transcript = finalMsgs || msgs;
     setEnded(true);
     setMockDone(true);
     setLoading(false);
-    await buildScores(transcript);
+    await Promise.all([buildScores(transcript), buildAutopsy(transcript)]);
   }
 
   async function send() {
@@ -1156,27 +1423,60 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
     setLoading(false);
   }
 
-  if (!type) return (
-    <div>
-      <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white }}>
-        <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700 }}>Mock Interview</div>
-        <div style={{ fontSize: 13, color: C.g500, marginTop: 2 }}>
-          {!storyBank ? "⚠️ Story bank not complete — complete Story Intelligence first for best results" : `✅ Story bank loaded · ${storyBank.length} cards · Interviewer knows your projects`}
+  if (!type) {
+    if (!storyBank) return (
+      <div>
+        <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white }}>
+          <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700 }}>Mock Interview</div>
+          <div style={{ fontSize: 13, color: C.g500, marginTop: 2 }}>Story Bank required before simulation</div>
         </div>
-      </div>
-      <div style={{ padding: "28px 32px" }}>
-        {!storyBank && <InfoBox type="warning">Complete Story Intelligence first — the mock is conditioned on your story bank. Without it, this is just a generic mock.</InfoBox>}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 680 }}>
+        <div style={{ padding: "28px 32px", maxWidth: 600 }}>
+          <div style={{ background: C.amberL, border: "1px solid #FCD34D", borderRadius: 12, padding: "20px 24px", marginBottom: 20 }}>
+            <div style={{ fontWeight: 700, fontSize: 14, color: "#92400E", marginBottom: 8 }}>Story Bank required to unlock the mock</div>
+            <div style={{ fontSize: 13, color: "#92400E", lineHeight: 1.7, marginBottom: 14 }}>
+              The mock is conditioned on your real work. Without a Story Bank, the interviewer has nothing to probe — it becomes a generic AI chat, exactly what Rethink is designed to replace.
+            </div>
+            <div style={{ fontSize: 12, color: "#92400E" }}>This is a product principle, not a UX choice. Probe-resistant answers come from mining your real work first.</div>
+          </div>
           {[
-            { t: "founder", icon: "👤", title: "Founder Round", desc: "Simulates a founder/CEO interview with deep probing on your work, MVP thinking, prioritisation, and business judgment.", badge: "Based on Geetha's interview · Unnati's questions" },
-            { t: "discovery", icon: "🔍", title: "Product Discovery Round", desc: "AI acts as a user persona. You must discover the real problem — not pitch solutions. Tests cross-questioning and product thinking.", badge: "Based on GajaLakshmi's & Anmoll's observed rounds" },
-          ].map(({ t, icon, title, desc, badge }) => (
-            <MockTypeCard key={t} t={t} icon={icon} title={title} desc={desc} badge={badge} onStart={start} />
+            ["Build your Story Bank first", "Paste your resume → 5 probe questions per project → Story Bank built in ~10 minutes"],
+            ["Your mock will be conditioned on it", "The interviewer will know exactly which projects to probe and which claims to test"],
+            ["Generic mocks don't predict real outcomes", "Interview prep tools that skip this step help you sound better, not more grounded"],
+          ].map(([title, desc]) => (
+            <div key={title} style={{ display: "flex", gap: 12, marginBottom: 14 }}>
+              <div style={{ width: 6, height: 6, borderRadius: "50%", background: C.purple, marginTop: 6, flexShrink: 0 }} />
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: C.g800 }}>{title}</div>
+                <div style={{ fontSize: 12, color: C.g500, marginTop: 2, lineHeight: 1.5 }}>{desc}</div>
+              </div>
+            </div>
           ))}
+          <Btn size="lg" onClick={() => setScreen("story")}>Go to Story Intelligence →</Btn>
         </div>
       </div>
-    </div>
-  );
+    );
+
+    return (
+      <div>
+        <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white }}>
+          <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700 }}>Mock Interview</div>
+          <div style={{ fontSize: 13, color: C.g500, marginTop: 2 }}>
+            {`Story bank loaded · ${storyBank.length} cards · Interviewer knows your projects`}
+          </div>
+        </div>
+        <div style={{ padding: "28px 32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, maxWidth: 680 }}>
+            {[
+              { t: "founder", icon: "👤", title: "Founder Round", desc: "Simulates a founder/CEO interview with deep probing on your work, MVP thinking, prioritisation, and business judgment.", badge: "Based on Geetha's interview · Unnati's questions" },
+              { t: "discovery", icon: "🔍", title: "Product Discovery Round", desc: "AI acts as a user persona. You must discover the real problem — not pitch solutions. Tests cross-questioning and product thinking.", badge: "Based on GajaLakshmi's & Anmoll's observed rounds" },
+            ].map(({ t, icon, title, desc, badge }) => (
+              <MockTypeCard key={t} t={t} icon={icon} title={title} desc={desc} badge={badge} onStart={start} />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
@@ -1196,8 +1496,8 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
             </Btn>
           )}
           {ended && scoringDone && (
-            <Btn variant="teal" onClick={() => setScreen("feedback")}>
-              View feedback & scores →
+            <Btn variant="teal" onClick={() => setScreen("autopsy")}>
+              View transcript autopsy →
             </Btn>
           )}
           {ended && !scoringDone && !scoringError && (
@@ -1268,8 +1568,8 @@ function MockScreen({ storyBank, company, setScores, setScreen, mockDone, setMoc
             {scoringError ? (
               <Btn variant="teal" size="lg" onClick={retryScoring}>↻ Retry scoring →</Btn>
             ) : scoringDone ? (
-              <Btn variant="teal" size="lg" onClick={() => setScreen("feedback")}>
-                View my feedback & scores →
+              <Btn variant="teal" size="lg" onClick={() => setScreen("autopsy")}>
+                View transcript autopsy →
               </Btn>
             ) : (
               <div style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 13, color: C.purple }}>
@@ -1326,6 +1626,7 @@ function FeedbackScreen({ scores, storyBank }) {
     </div>
   );
 
+  const [expandedDim, setExpandedDim] = useState(null);
   const overall = scores.overall || 0;
   const oColor = overall >= 3 ? C.teal : overall >= 2 ? C.amber : C.red;
   const sc = s => s >= 3.5 ? C.teal : s >= 2.5 ? C.amber : C.red;
@@ -1356,27 +1657,62 @@ function FeedbackScreen({ scores, storyBank }) {
 
         {scores.authenticityNote && (
           <div style={{ padding: "12px 16px", borderRadius: 10, marginBottom: 20, background: C.purpleL, border: `1px solid ${C.purpleM}`, fontSize: 13, color: C.purpleD }}>
-            <strong>📖 Story grounding:</strong> {scores.authenticityNote}
+            <strong>Story grounding:</strong> {scores.authenticityNote}
           </div>
+        )}
+
+        {/* PM Thinking Coach */}
+        {scores.pmCoachingSignals?.length > 0 && (
+          <Card style={{ marginBottom: 20, border: `1px solid #FCD34D` }}>
+            <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 4 }}>PM Thinking Coach</div>
+            <div style={{ fontSize: 12, color: C.g500, marginBottom: 14 }}>Thinking patterns observed in your session — these are what interviewers are actually scoring, not just the rubric dimensions</div>
+            {scores.pmCoachingSignals.map((signal, i) => (
+              <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: "9px 0", borderBottom: i < scores.pmCoachingSignals.length - 1 ? `1px solid ${C.g100}` : "none" }}>
+                <div style={{ color: C.amber, fontWeight: 700, fontSize: 14, flexShrink: 0, marginTop: 1 }}>⚠</div>
+                <div style={{ fontSize: 13, color: C.g700, lineHeight: 1.6 }}>{signal}</div>
+              </div>
+            ))}
+          </Card>
         )}
 
         {/* Rubric */}
         <Card style={{ marginBottom: 20 }}>
-          <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 18 }}>11-Dimension Rubric Scores</div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
+            <div style={{ fontWeight: 700, fontSize: 14 }}>11-Dimension Rubric Scores</div>
+            <div style={{ fontSize: 11, color: C.g400 }}>Click any dimension to see what each score means</div>
+          </div>
           {DIMS.map(dim => {
             const s = scores.scores?.[dim.key];
             const score = s?.score || 1;
+            const isExp = expandedDim === dim.key;
             return (
-              <div key={dim.key} style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: `1px solid ${C.g100}` }}>
-                <div style={{ fontSize: 12, fontWeight: 500, color: C.g700, width: 190, flexShrink: 0 }}>{dim.label}</div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <ProgressBar pct={(score / 4) * 100} color={sc(score)} height={7} />
-                    <span style={{ fontSize: 10, color: sc(score), fontWeight: 700, minWidth: 72 }}>{band(score)}</span>
+              <div key={dim.key}>
+                <div onClick={() => setExpandedDim(isExp ? null : dim.key)}
+                  style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: isExp ? "none" : `1px solid ${C.g100}`, cursor: "pointer" }}>
+                  <div style={{ fontSize: 12, fontWeight: 500, color: C.g700, width: 190, flexShrink: 0 }}>{dim.label}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <ProgressBar pct={(score / 4) * 100} color={sc(score)} height={7} />
+                      <span style={{ fontSize: 10, color: sc(score), fontWeight: 700, minWidth: 72 }}>{band(score)}</span>
+                    </div>
+                    {s?.citation && <div style={{ fontSize: 11, color: C.g400, marginTop: 3, fontStyle: "italic" }}>"{s.citation}"</div>}
                   </div>
-                  {s?.citation && <div style={{ fontSize: 11, color: C.g400, marginTop: 3, fontStyle: "italic" }}>"{s.citation}"</div>}
+                  <div style={{ fontSize: 13, fontWeight: 700, color: sc(score), width: 28, textAlign: "right" }}>{score}/4</div>
+                  <div style={{ fontSize: 10, color: C.g300, width: 10, textAlign: "right" }}>{isExp ? "▲" : "▼"}</div>
                 </div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: sc(score), width: 28, textAlign: "right" }}>{score}/4</div>
+                {isExp && (
+                  <div style={{ padding: "8px 12px 14px", background: C.g50, borderBottom: `1px solid ${C.g100}`, marginLeft: 0 }}>
+                    <div style={{ fontSize: 10, fontWeight: 700, color: C.g500, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 8 }}>What each score means for {dim.label}</div>
+                    {[4, 3, 2, 1].map(b => (
+                      <div key={b} style={{ display: "flex", gap: 10, marginBottom: 6, alignItems: "flex-start" }}>
+                        <span style={{ fontWeight: 700, fontSize: 11, minWidth: 22, color: b === 4 ? C.teal : b === 3 ? C.teal : b === 2 ? C.amber : C.red }}>{b}/4</span>
+                        <span style={{ fontSize: 11, color: b === score ? C.g900 : C.g500, lineHeight: 1.55, fontWeight: b === score ? 600 : 400 }}>
+                          {b === score && <span style={{ color: sc(score), marginRight: 4 }}>←</span>}{DIM_ANCHORS[dim.key]?.[b]}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
@@ -1445,12 +1781,72 @@ function HistoryScreen({ sessionHistory, setScreen, onOutcomeUpdate }) {
         {sessionHistory.length >= 2 && (
           <InfoBox type={trend > 0 ? "success" : "info"}>
             {trend > 0
-              ? `📈 Your overall score improved by ${trend.toFixed(1)} points from your first to most recent session. This is the feedback-efficacy signal the whole product is built around — it's working.`
+              ? `Your overall score improved by ${trend.toFixed(1)} points from your first to most recent session.`
               : trend < 0
               ? `Your most recent score is ${Math.abs(trend).toFixed(1)} points lower than your first. That can happen with a harder company or round type — check which rubric dimensions shifted below.`
               : `Your scores have stayed flat across sessions. Try focusing specifically on your top weakness from the last session before your next mock.`}
           </InfoBox>
         )}
+
+        <WeaknessInsights insights={getWeaknessInsights(sessionHistory)} />
+
+        {/* Company Replay — dimension-level progress per company */}
+        {(() => {
+          const byCompany = {};
+          sessionHistory.forEach(s => {
+            if (!byCompany[s.company]) byCompany[s.company] = [];
+            byCompany[s.company].push(s);
+          });
+          const multi = Object.entries(byCompany).filter(([, ss]) => ss.length >= 2);
+          if (multi.length === 0) return null;
+          return (
+            <div style={{ marginBottom: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.g500, marginBottom: 12 }}>
+                Company replay — progress across sessions
+              </div>
+              {multi.map(([company, ss]) => {
+                const sorted = [...ss].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                const first = sorted[0];
+                const latest = sorted[sorted.length - 1];
+                const overallDelta = latest.overall - first.overall;
+                const dimMovers = DIMS.map(d => {
+                  const f = first.scores?.[d.key]?.score;
+                  const l = latest.scores?.[d.key]?.score;
+                  if (typeof f !== "number" || typeof l !== "number") return null;
+                  return { label: d.label, delta: parseFloat((l - f).toFixed(1)), latest: l };
+                }).filter(Boolean).sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, 3);
+                const sc2 = s => s >= 3 ? C.teal : s >= 2 ? C.amber : C.red;
+                return (
+                  <div key={company} style={{ background: C.white, border: `1px solid ${C.g200}`, borderRadius: 12, padding: "16px 20px", marginBottom: 12 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                      <div style={{ fontWeight: 700, fontSize: 13 }}>{company} — {sorted.length} sessions</div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span style={{ fontSize: 12, color: C.g500 }}>{first.overall}/4</span>
+                        <span style={{ fontSize: 12, color: C.g400 }}>→</span>
+                        <span style={{ fontSize: 14, fontWeight: 700, color: sc2(latest.overall) }}>{latest.overall}/4</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: overallDelta > 0 ? C.teal : overallDelta < 0 ? C.red : C.g400 }}>
+                          {overallDelta > 0 ? `↑ +${overallDelta.toFixed(1)}` : overallDelta < 0 ? `↓ ${overallDelta.toFixed(1)}` : "→ flat"}
+                        </span>
+                      </div>
+                    </div>
+                    {dimMovers.length > 0 && (
+                      <div style={{ display: "flex", gap: 10 }}>
+                        {dimMovers.map(d => (
+                          <div key={d.label} style={{ flex: 1, background: C.g50, borderRadius: 8, padding: "8px 10px", border: `1px solid ${C.g200}` }}>
+                            <div style={{ fontSize: 10, color: C.g500, marginBottom: 3 }}>{d.label}</div>
+                            <div style={{ fontSize: 11, fontWeight: 700, color: d.delta > 0 ? C.teal : d.delta < 0 ? C.red : C.g400 }}>
+                              {d.delta > 0 ? `↑ +${d.delta}` : d.delta < 0 ? `↓ ${d.delta}` : "→ flat"} · {d.latest}/4
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })()}
 
         {sessionHistory.slice().reverse().map((s, idx) => {
           const sessionNum = sessionHistory.length - idx;
@@ -1493,11 +1889,436 @@ function HistoryScreen({ sessionHistory, setScreen, onOutcomeUpdate }) {
 }
 
 
+// ── Story Coach ───────────────────────────────────────────────────────────────
+function StoryCoachScreen({ storyBank, setScreen }) {
+  const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  const bank = storyBank ? JSON.parse(storyBank) : null;
+
+  async function runCoach() {
+    if (!bank || bank.length === 0) return;
+    setLoading(true);
+    setError(null);
+    setResults(null);
+    try {
+      const cards = bank.map((c, i) => `[${i + 1}] Project: ${c.project || "Unnamed"}\nRole/contribution: ${c.contribution || "—"}\nMetrics: ${c.metrics || "—"}\nChallenge: ${c.challenge || "—"}\nDecision: ${c.decision || "—"}`).join("\n\n");
+
+      const sys = `You are a PM interview coach specializing in STAR storytelling. Given a candidate's raw story bank, extract and critique each story as a STAR narrative.
+
+For each story, produce:
+- situation: 1–2 sentence framing (context, stakes, why it mattered)
+- task: candidate's specific ownership and responsibility
+- action: 2–3 concrete steps they personally took (avoid "we")
+- result: measurable outcome with specific number and timeframe
+- starScore: 1–4 (1=weak/missing, 2=basic, 3=solid, 4=compelling)
+- strengths: array of 1–2 strings — what's already working
+- gaps: array of 1–2 strings — what's missing or vague
+- rewriteHint: one sentence telling the candidate exactly what to add to improve this story
+
+Return ONLY valid JSON, no markdown:
+{
+  "stories": [
+    {
+      "index": number,
+      "project": string,
+      "situation": string,
+      "task": string,
+      "action": string,
+      "result": string,
+      "starScore": number,
+      "strengths": [string],
+      "gaps": [string],
+      "rewriteHint": string
+    }
+  ],
+  "overallVerdict": string (2–3 sentences: what pattern cuts across all stories, the one thing to fix first)
+}`;
+
+      const result = await callGroqJSON(
+        [{ role: "user", content: `Story bank entries:\n\n${cards}` }],
+        sys, 2000, { retries: 1 }
+      );
+      if (!result?.stories) throw new Error("Unexpected response from coach");
+      setResults(result);
+      setActiveIdx(0);
+    } catch (e) {
+      setError(friendlyError(e));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (!bank || bank.length === 0) {
+    return (
+      <div style={{ padding: "24px 32px" }}>
+        <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Story Coach</div>
+        <InfoBox type="info">
+          Your Story Bank is empty. Complete Story Intelligence first so Story Coach has material to work with.
+          <div style={{ marginTop: 10 }}>
+            <Btn onClick={() => setScreen("story")}>Go to Story Intelligence →</Btn>
+          </div>
+        </InfoBox>
+      </div>
+    );
+  }
+
+  const scoreColor = s => s >= 4 ? C.teal : s >= 3 ? C.purple : s >= 2 ? C.amber : C.red;
+  const scoreLabel = s => s >= 4 ? "Compelling" : s >= 3 ? "Solid" : s >= 2 ? "Basic" : "Weak";
+
+  return (
+    <div>
+      <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700, color: C.g900 }}>Story Coach</div>
+          <div style={{ fontSize: 13, color: C.g500, marginTop: 2 }}>STAR extraction + gap analysis for your {bank.length} story bank entries</div>
+        </div>
+        {!results && !loading && (
+          <Btn onClick={runCoach}>Analyse my stories →</Btn>
+        )}
+        {results && (
+          <Btn onClick={runCoach}>Re-analyse →</Btn>
+        )}
+      </div>
+
+      <div style={{ padding: "28px 32px" }}>
+        {!results && !loading && !error && (
+          <Card style={{ marginBottom: 20 }}>
+            <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 8 }}>What Story Coach does</div>
+            <div style={{ fontSize: 13, color: C.g600, lineHeight: 1.6 }}>
+              Your story bank has <strong>{bank.length} projects</strong>. Story Coach will extract a STAR narrative (Situation → Task → Action → Result) from each one, score the narrative quality, and tell you exactly what to add to make each story land in a real interview.
+            </div>
+            <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+              {[
+                { icon: "🔍", title: "STAR extraction", desc: "Pulls out what's there — even when implicit" },
+                { icon: "📍", title: "Gap detection", desc: "Flags missing metrics, vague ownership, weak results" },
+                { icon: "✏️", title: "Rewrite hints", desc: "One specific sentence on what to add per story" },
+              ].map(f => (
+                <div key={f.title} style={{ background: C.g50, borderRadius: 8, padding: "12px 14px", border: `1px solid ${C.g200}` }}>
+                  <div style={{ fontSize: 18, marginBottom: 6 }}>{f.icon}</div>
+                  <div style={{ fontSize: 12, fontWeight: 600, color: C.g800, marginBottom: 4 }}>{f.title}</div>
+                  <div style={{ fontSize: 11, color: C.g500 }}>{f.desc}</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
+
+        {loading && (
+          <Card>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "8px 0" }}>
+              <div style={{ width: 20, height: 20, borderRadius: "50%", border: `2px solid ${C.purple}`, borderTopColor: "transparent", animation: "spin 0.8s linear infinite" }} />
+              <div style={{ fontSize: 13, color: C.g600 }}>Extracting STAR narratives from your {bank.length} stories...</div>
+            </div>
+          </Card>
+        )}
+
+        {error && <InfoBox type="error">{error}</InfoBox>}
+
+        {results && (
+          <>
+            <InfoBox type={results.overallVerdict?.toLowerCase().includes("strong") ? "success" : "info"} style={{ marginBottom: 20 }}>
+              <strong>Overall verdict:</strong> {results.overallVerdict}
+            </InfoBox>
+
+            {/* Story tabs */}
+            <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
+              {results.stories.map((s, i) => (
+                <button key={i} onClick={() => setActiveIdx(i)}
+                  style={{ fontSize: 12, padding: "6px 12px", borderRadius: 99, cursor: "pointer", fontFamily: "inherit", border: `1.5px solid ${activeIdx === i ? scoreColor(s.starScore) : C.g200}`, background: activeIdx === i ? (s.starScore >= 3 ? C.tealL : s.starScore >= 2 ? "#FFF8E1" : "#FEF2F2") : "transparent", color: activeIdx === i ? scoreColor(s.starScore) : C.g600, fontWeight: activeIdx === i ? 700 : 400 }}>
+                  {s.project || `Story ${i + 1}`}
+                  <span style={{ marginLeft: 6, fontSize: 10, fontWeight: 700 }}>{scoreLabel(s.starScore)}</span>
+                </button>
+              ))}
+            </div>
+
+            {results.stories[activeIdx] && (() => {
+              const s = results.stories[activeIdx];
+              return (
+                <Card>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
+                    <div>
+                      <div style={{ fontFamily: "Georgia,serif", fontSize: 18, fontWeight: 700, color: C.g900 }}>{s.project || `Story ${activeIdx + 1}`}</div>
+                      <div style={{ fontSize: 12, color: C.g500, marginTop: 2 }}>STAR narrative extracted from your story bank</div>
+                    </div>
+                    <div style={{ textAlign: "center", background: scoreColor(s.starScore), color: "#fff", borderRadius: 8, padding: "6px 14px" }}>
+                      <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700 }}>{s.starScore}/4</div>
+                      <div style={{ fontSize: 10, fontWeight: 700 }}>{scoreLabel(s.starScore)}</div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 20 }}>
+                    {[
+                      { key: "S", label: "Situation", val: s.situation, color: "#EFF6FF", border: "#BFDBFE" },
+                      { key: "T", label: "Task", val: s.task, color: "#F0FDF4", border: "#BBF7D0" },
+                      { key: "A", label: "Action", val: s.action, color: "#FFF7ED", border: "#FED7AA" },
+                      { key: "R", label: "Result", val: s.result, color: s.result && s.result.match(/\d/) ? "#F0FDF4" : "#FEF2F2", border: s.result && s.result.match(/\d/) ? "#BBF7D0" : "#FECACA" },
+                    ].map(row => (
+                      <div key={row.key} style={{ background: row.color, border: `1px solid ${row.border}`, borderRadius: 10, padding: "12px 14px" }}>
+                        <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.g500, marginBottom: 4 }}>{row.key} — {row.label}</div>
+                        <div style={{ fontSize: 13, color: C.g800, lineHeight: 1.5 }}>{row.val || <span style={{ color: C.g400, fontStyle: "italic" }}>Not found in story bank</span>}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 16 }}>
+                    <div style={{ background: C.tealL, border: `1px solid #99F6E4`, borderRadius: 10, padding: "12px 14px" }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.teal, marginBottom: 8 }}>Strengths</div>
+                      {(s.strengths || []).map((str, i) => (
+                        <div key={i} style={{ fontSize: 13, color: C.g800, display: "flex", gap: 6, marginBottom: 4 }}>
+                          <span style={{ color: C.teal, flexShrink: 0 }}>✓</span>{str}
+                        </div>
+                      ))}
+                      {(!s.strengths || s.strengths.length === 0) && <div style={{ fontSize: 12, color: C.g400, fontStyle: "italic" }}>None identified yet</div>}
+                    </div>
+                    <div style={{ background: "#FFF8E1", border: `1px solid #FDE68A`, borderRadius: 10, padding: "12px 14px" }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.amber, marginBottom: 8 }}>Gaps</div>
+                      {(s.gaps || []).map((g, i) => (
+                        <div key={i} style={{ fontSize: 13, color: C.g800, display: "flex", gap: 6, marginBottom: 4 }}>
+                          <span style={{ color: C.amber, flexShrink: 0 }}>△</span>{g}
+                        </div>
+                      ))}
+                      {(!s.gaps || s.gaps.length === 0) && <div style={{ fontSize: 12, color: C.g400, fontStyle: "italic" }}>No major gaps</div>}
+                    </div>
+                  </div>
+
+                  <div style={{ background: C.purpleL, border: `1px solid #D1CEFF`, borderRadius: 10, padding: "12px 14px" }}>
+                    <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.purple, marginBottom: 6 }}>Rewrite hint</div>
+                    <div style={{ fontSize: 13, color: C.purpleD, lineHeight: 1.5 }}>{s.rewriteHint}</div>
+                  </div>
+                </Card>
+              );
+            })()}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Transcript Autopsy ────────────────────────────────────────────────────────
+function AutopsyScreen({ autopsy, autopsyError, scores, setScreen }) {
+  const [drillAnswer, setDrillAnswer] = useState("");
+  const [drillScore, setDrillScore] = useState(null);
+  const [drillLoading, setDrillLoading] = useState(false);
+  const [drillError, setDrillError] = useState(null);
+  const drillSpeech = useSpeechInput(setDrillAnswer);
+
+  async function submitDrill() {
+    if (!drillAnswer.trim() || !autopsy?.drillQuestion) return;
+    setDrillLoading(true);
+    setDrillError(null);
+    try {
+      const sys = `Evaluate this single PM interview answer on 3 dimensions. Be honest and specific — base every note only on what the candidate actually wrote.
+
+Question asked: "${autopsy.drillQuestion}"
+
+Dimensions:
+- structure: Was the answer organized with a clear narrative arc?
+- storytelling: Specific first-person narrative with real details (names, numbers, timelines)?
+- claimdepth: Did claims have backing evidence — numbers, named decisions, context?
+
+Scale: 1=weak/missing, 2=basic attempt, 3=good, 4=strong
+
+Return ONLY valid JSON, no markdown:
+{
+  "structure": {"score": number, "note": string},
+  "storytelling": {"score": number, "note": string},
+  "claimdepth": {"score": number, "note": string},
+  "overall": number,
+  "verdict": string (1 sentence: what specifically improved or still needs work)
+}`;
+      const result = await callGroqJSON(
+        [{ role: "user", content: `Question: ${autopsy.drillQuestion}\n\nAnswer: ${drillAnswer}` }],
+        sys, 600, { retries: 1 }
+      );
+      if (typeof result.overall === "string") result.overall = parseFloat(result.overall);
+      ["structure", "storytelling", "claimdepth"].forEach(k => {
+        if (result[k] && typeof result[k].score === "string") result[k].score = parseFloat(result[k].score);
+      });
+      setDrillScore(result);
+    } catch (e) {
+      setDrillError(friendlyError(e));
+    }
+    setDrillLoading(false);
+  }
+
+  const sc = s => s >= 3.5 ? C.teal : s >= 2.5 ? C.amber : C.red;
+
+  if (!autopsy && !autopsyError) return (
+    <div>
+      <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white }}>
+        <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700, color: C.g900 }}>Transcript Autopsy</div>
+        <div style={{ fontSize: 13, color: C.g500, marginTop: 2 }}>Finding the exact moments your interview turned...</div>
+      </div>
+      <div style={{ padding: "28px 32px", display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: C.purple }}>
+        <Spinner /> Analyzing transcript — this takes a few seconds...
+      </div>
+    </div>
+  );
+
+  if (autopsyError) return (
+    <div>
+      <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white }}>
+        <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700, color: C.g900 }}>Transcript Autopsy</div>
+      </div>
+      <div style={{ padding: "28px 32px" }}>
+        <InfoBox type="warning">⚠️ {autopsyError} — autopsy couldn't complete, but your rubric scores are still available.</InfoBox>
+        <Btn onClick={() => setScreen("feedback")}>See rubric scores →</Btn>
+      </div>
+    </div>
+  );
+
+  return (
+    <div>
+      <div style={{ padding: "24px 32px 20px", borderBottom: `1px solid ${C.g200}`, background: C.white, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <div style={{ fontFamily: "Georgia,serif", fontSize: 22, fontWeight: 700, color: C.g900 }}>Transcript Autopsy</div>
+          <div style={{ fontSize: 13, color: C.g500, marginTop: 2 }}>The exact moments it went wrong — and how to fix them</div>
+        </div>
+        <Btn variant="secondary" onClick={() => setScreen("feedback")}>See full rubric scores →</Btn>
+      </div>
+
+      <div style={{ padding: "28px 32px", maxWidth: 760 }}>
+
+        {/* ── Turning point ── */}
+        <div style={{ marginBottom: 32 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.red, marginBottom: 12 }}>
+            The moment it turned — Turn {autopsy.turningPoint?.turnNumber}
+          </div>
+          <Card style={{ border: `2px solid #FCA5A5` }}>
+            <div style={{ marginBottom: 12 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.g400, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 5 }}>Interviewer asked</div>
+              <div style={{ fontSize: 14, color: C.g800, fontStyle: "italic", lineHeight: 1.65 }}>"{autopsy.turningPoint?.interviewerQuestion}"</div>
+            </div>
+            <div style={{ marginBottom: 12 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.g400, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 5 }}>You said</div>
+              <div style={{ fontSize: 13, color: C.purpleD, background: C.purpleL, padding: "10px 14px", borderRadius: 8, lineHeight: 1.65, borderLeft: `3px solid ${C.purpleM}` }}>
+                "{autopsy.turningPoint?.candidateAnswer}"
+              </div>
+            </div>
+            <div style={{ background: "#FEF2F2", border: "1px solid #FCA5A5", borderRadius: 8, padding: "10px 14px" }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.red, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 4 }}>What the interviewer heard</div>
+              <div style={{ fontSize: 13, color: "#7F1D1D", lineHeight: 1.65 }}>{autopsy.turningPoint?.gap}</div>
+            </div>
+          </Card>
+        </div>
+
+        {/* ── 3 weak moments ── */}
+        <div style={{ marginBottom: 32 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.g600, marginBottom: 12 }}>
+            3 claims that didn't hold up
+          </div>
+          {autopsy.weakMoments?.map((m, i) => (
+            <Card key={i} style={{ marginBottom: 14 }}>
+              <div style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 14 }}>
+                <div style={{ width: 22, height: 22, borderRadius: "50%", background: C.red, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>{i + 1}</div>
+                <div style={{ fontSize: 13, color: C.g600, fontStyle: "italic", lineHeight: 1.55 }}>"{m.interviewerQuestion}"</div>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 12 }}>
+                <div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: C.g400, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 5 }}>You said</div>
+                  <div style={{ fontSize: 12, color: C.g700, background: C.g50, padding: "8px 12px", borderRadius: 8, lineHeight: 1.6, borderLeft: `3px solid ${C.g300}`, minHeight: 56 }}>"{m.candidateAnswer}"</div>
+                </div>
+                <div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: C.teal, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 5 }}>4/4 answer looks like</div>
+                  <div style={{ fontSize: 12, color: "#065F46", background: C.tealL, padding: "8px 12px", borderRadius: 8, lineHeight: 1.6, borderLeft: `3px solid ${C.teal}`, minHeight: 56 }}>{m.modelAnswer}</div>
+                </div>
+              </div>
+
+              <div style={{ background: C.amberL, border: "1px solid #FCD34D", borderRadius: 8, padding: "8px 12px" }}>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "#92400E" }}>The gap: </span>
+                <span style={{ fontSize: 12, color: "#92400E", lineHeight: 1.6 }}>{m.gap}</span>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* ── Re-drill ── */}
+        <div>
+          <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: C.purple, marginBottom: 12 }}>
+            Fix it now — answer the question you struggled with
+          </div>
+          <Card>
+            <div style={{ padding: "14px 16px", background: C.purpleL, border: `1.5px solid ${C.purpleM}`, borderRadius: 10, marginBottom: 18 }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.purple, textTransform: "uppercase", letterSpacing: ".06em", marginBottom: 5 }}>Drill question</div>
+              <div style={{ fontSize: 15, color: C.purpleD, fontFamily: "Georgia,serif", fontStyle: "italic", lineHeight: 1.55 }}>{autopsy.drillQuestion}</div>
+            </div>
+
+            {!drillScore ? (
+              <>
+                <InfoBox type="info">Answer with specifics — a real number, a named decision, your reasoning. Pretend this is the real interview, take two.</InfoBox>
+                <div style={{ marginBottom: 14 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                    <label style={{ fontSize: 12, fontWeight: 600, color: C.g700 }}>Your answer (take 2)</label>
+                    {drillSpeech.supported && (
+                      <button onClick={drillSpeech.toggle}
+                        style={{ background: drillSpeech.listening ? "#FEF2F2" : C.g100, border: `1px solid ${drillSpeech.listening ? "#FCA5A5" : C.g300}`, borderRadius: 6, padding: "3px 10px", fontSize: 12, cursor: "pointer", color: drillSpeech.listening ? C.red : C.g600, fontFamily: "inherit" }}>
+                        {drillSpeech.listening ? "Stop" : "Speak"}
+                      </button>
+                    )}
+                  </div>
+                  <textarea value={drillAnswer} onChange={e => setDrillAnswer(e.target.value)} rows={5} autoFocus
+                    placeholder="Be specific. What exactly did you do? What number? What decision was yours alone?"
+                    style={{ width: "100%", fontFamily: "inherit", fontSize: 13, padding: "10px 12px", border: `1px solid ${C.g300}`, borderRadius: 8, resize: "vertical", lineHeight: 1.6, outline: "none" }} />
+                </div>
+                {drillError && <InfoBox type="warning">⚠️ {drillError}</InfoBox>}
+                <Btn onClick={submitDrill} disabled={!drillAnswer.trim() || drillLoading}>
+                  {drillLoading ? <><Spinner /> Scoring...</> : "Score my answer →"}
+                </Btn>
+              </>
+            ) : (
+              <div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 16 }}>
+                  {[
+                    { key: "structure", label: "Structure" },
+                    { key: "storytelling", label: "Storytelling" },
+                    { key: "claimdepth", label: "Claim depth" },
+                  ].map(({ key, label }) => {
+                    const orig = scores?.scores?.[key]?.score;
+                    const newScore = drillScore[key]?.score;
+                    const delta = (orig != null && newScore != null) ? (newScore - orig) : null;
+                    return (
+                      <div key={key} style={{ background: C.g50, border: `1px solid ${C.g200}`, borderTop: `3px solid ${sc(newScore || 1)}`, borderRadius: 10, padding: "14px 14px 12px" }}>
+                        <div style={{ fontFamily: "Georgia,serif", fontSize: 26, fontWeight: 700, color: sc(newScore || 1), marginBottom: 2 }}>{newScore}/4</div>
+                        <div style={{ fontSize: 11, color: C.g500, marginBottom: 6 }}>{label}</div>
+                        {delta !== null && (
+                          <div style={{ fontSize: 11, fontWeight: 700, color: delta > 0 ? C.teal : delta < 0 ? C.red : C.g400, marginBottom: 6 }}>
+                            {delta > 0 ? `↑ +${delta.toFixed(1)} vs original` : delta < 0 ? `↓ ${Math.abs(delta).toFixed(1)} vs original` : "Same as original"}
+                          </div>
+                        )}
+                        <div style={{ fontSize: 11, color: C.g500, fontStyle: "italic", lineHeight: 1.5 }}>{drillScore[key]?.note}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div style={{ padding: "12px 16px", background: C.tealL, border: "1px solid #6EE7B7", borderRadius: 10, fontSize: 13, color: "#065F46", marginBottom: 16 }}>
+                  <strong>Verdict:</strong> {drillScore.verdict}
+                </div>
+                <div style={{ display: "flex", gap: 10 }}>
+                  <Btn variant="secondary" onClick={() => { setDrillScore(null); setDrillAnswer(""); setDrillError(null); }}>Try again</Btn>
+                  <Btn onClick={() => setScreen("feedback")}>See full rubric →</Btn>
+                </div>
+              </div>
+            )}
+          </Card>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function App({ user }) {
   const [screen, setScreen] = useState("dashboard");
   const [company, setCompany] = useState(null);
   const [storyBank, setStoryBank] = useState(null);
   const [scores, setScores] = useState(null);
+  const [autopsy, setAutopsy] = useState(null);
+  const [autopsyError, setAutopsyError] = useState(null);
   const [mockDone, setMockDone] = useState(false);
   const [sessionHistory, setSessionHistory] = useState([]);
   const [dbLoading, setDbLoading] = useState(true);
@@ -1616,9 +2437,11 @@ export default function App({ user }) {
           {screen === "dashboard" && <Dashboard setScreen={setScreen} company={company} storyDone={!!storyBank} mockDone={mockDone} scores={scores} sessionHistory={sessionHistory} />}
           {screen === "company"   && <CompanyScreen company={company} setCompany={setCompany} setScreen={setScreen} />}
           {screen === "story"     && <StoryScreen storyBank={storyBank} setStoryBank={saveStoryBank} setScreen={setScreen} company={company} />}
-          {screen === "mock"      && <MockScreen storyBank={storyBank} company={company} setScores={setScores} setScreen={setScreen} mockDone={mockDone} setMockDone={setMockDone} onSessionComplete={recordSession} />}
+          {screen === "mock"      && <MockScreen storyBank={storyBank} company={company} setScores={setScores} setScreen={setScreen} mockDone={mockDone} setMockDone={setMockDone} onSessionComplete={recordSession} setAutopsy={setAutopsy} setAutopsyError={setAutopsyError} />}
+          {screen === "autopsy"   && <AutopsyScreen autopsy={autopsy} autopsyError={autopsyError} scores={scores} setScreen={setScreen} />}
           {screen === "feedback"  && <FeedbackScreen scores={scores} storyBank={storyBank} sessionHistory={sessionHistory} />}
           {screen === "history"   && <HistoryScreen sessionHistory={sessionHistory} setScreen={setScreen} onOutcomeUpdate={updateOutcome} />}
+          {screen === "coach"     && <StoryCoachScreen storyBank={storyBank} setScreen={setScreen} />}
         </div>
       </div>
     </>
